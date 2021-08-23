@@ -1,6 +1,9 @@
 import {render} from 'react-dom'
 
-render(
-    <h1>Hello world</h1>,
-    document.getElementById('root')
-)
+import 'react-dates/initialize'
+import 'react-dates/lib/css/_datepicker.css'
+
+import App from './App'
+import './index.scss'
+
+render(<App/>, document.getElementById('root'))

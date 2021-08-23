@@ -1,0 +1,48 @@
+@import './common/styles/variables';
+@import './common/styles/colors';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+input, button {
+    border: 0;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+button {
+    &:hover {
+        opacity: .8;
+    }
+}
+
+.wrapper {
+    width: 100%;
+    height: 100%;
+    max-width: 1450px;
+    padding: 0 10px;
+    margin: 0 auto;
+}
+
+section {
+    padding: 50px 0;
+
+    .section-title {
+        color: $dark_gray;
+        font-size: 28px;
+    }
+}

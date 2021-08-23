@@ -1,4 +1,5 @@
-const mix = require('laravel-mix');
+const mix = require('laravel-mix')
+const path = require('path')
 
 /*
  |--------------------------------------------------------------------------
@@ -11,5 +12,16 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/index.js', 'public/js')
-    .react();
+mix
+    .alias({
+        '@': path.resolve(__dirname, 'resources/js')
+    })
+    .js('resources/js/index.js', 'public/js')
+    .react()
+    .override(config => {
+        if (config.devServer) {
+            config.devServer.devMiddleware = config.devServer.dev;
+            delete config.devServer.dev;
+        }
+    });
+
