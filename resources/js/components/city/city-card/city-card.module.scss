@@ -1,0 +1,22 @@
+@import '@/common/styles/colors';
+
+.card {
+    box-shadow: none !important;
+    cursor: pointer;
+
+    .media {
+        height: 150px;
+        border-radius: 25px;
+    }
+
+    .content {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    &:hover {
+        .title {
+            color: $primary;
+        }
+    }
+}

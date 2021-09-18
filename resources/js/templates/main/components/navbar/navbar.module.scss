@@ -1,0 +1,36 @@
+@import '@/common/styles/variables';
+@import '@/common/styles/colors';
+
+.navbar {
+    height: $navbar_height;
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+
+    .logo {
+        font-size: 30px;
+        font-weight: 900;
+        letter-spacing: 0;
+        color: $primary;
+    }
+
+    .menu {
+        display: flex;
+
+        li {
+            font-size: 18px;
+            margin-left: 20px;
+            cursor: pointer;
+
+            .styled {
+                color: $primary;
+                font-weight: 600;
+            }
+
+            .active {
+                color: $primary;
+            }
+        }
+    }
+}

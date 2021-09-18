@@ -1,0 +1,60 @@
+@import "@/common/styles/colors";
+
+.categories {
+    height: 15rem;
+    display: grid !important;
+    grid-template-columns: repeat(5, 1fr);
+    grid-column-gap: 40px;
+    background-color: #fff;
+    border-radius: 100px 100px 0 0;
+    position: relative;
+    padding: 30px;
+    margin-top: -90px;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 100;
+
+    .category {
+        height: 100%;
+        background-color: $dirty_white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        padding: 30px;
+        cursor: pointer;
+        transition: .3s;
+
+        &:first-of-type {
+            border-top-left-radius: 100px;
+        }
+
+        &:last-of-type {
+            border-top-right-radius: 100px;
+        }
+
+        img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            white-space: pre-wrap;
+            text-align: center;
+        }
+
+        &:hover {
+            background-color: $primary;
+
+            img {
+                filter: brightness(0) invert(1);
+            }
+
+            h3 {
+                color: #fff;
+            }
+        }
+    }
+}

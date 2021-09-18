@@ -1,0 +1,32 @@
+@import '@/common/styles/colors';
+
+.container {
+    background-color: $primary;
+    padding: 70px 50px;
+
+    * {
+        color: #fff !important;
+    }
+
+    .textField {
+        color: #fff !important;
+    }
+
+    .input {
+        color: #fff !important;
+
+        &::before, &:hover::before {
+            border-color: #fff;
+        }
+    }
+
+    .checkbox {
+        margin-right: 0;
+    }
+
+    .button, .button:hover {
+        background-color: transparent;
+        border: 2px solid #fff;
+        margin-top: 10px;
+    }
+}

@@ -1,0 +1,59 @@
+@import '@/common/styles/colors';
+
+.footer {
+    border-top: 1px solid $light_gray;
+    padding: 50px 0;
+
+    .socialList {
+        display: flex;
+        margin-bottom: 10px;
+
+        a {
+            margin-right: 15px;
+
+            img {
+                width: 35px;
+            }
+        }
+    }
+
+    .navigation {
+        a {
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 7px;
+
+            &:hover {
+                color: rgba(0, 0, 0, .7);
+            }
+        }
+    }
+
+    .scrollToTop {
+        width: 50px;
+        height: 50px;
+        background: $primary;
+        border-radius: 50%;
+        position: relative;
+        cursor: pointer;
+
+        &::before, &::after {
+            content: '';
+            width: 20px;
+            height: 4px;
+            background-color: #fff;
+            position: absolute;
+            top: 22px;
+        }
+
+        &::before {
+            left: 9px;
+            transform: rotate(-50deg);
+        }
+
+        &::after {
+            right: 9px;
+            transform: rotate(50deg);
+        }
+    }
+}
