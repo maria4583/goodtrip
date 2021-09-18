@@ -9,6 +9,7 @@ import 'flatpickr/dist/themes/light.css'
 //import styles for swiper slider
 import 'swiper/css'
 import 'swiper/css/effect-coverflow'
+import 'swiper/css/effect-fade'
 import 'swiper/css/pagination'
 
 import '@/utils/i18next'

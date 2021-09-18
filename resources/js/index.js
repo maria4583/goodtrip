@@ -1,9 +1,12 @@
+import {StrictMode} from 'react'
 import {render} from 'react-dom'
 
-import 'react-dates/initialize'
-import 'react-dates/lib/css/_datepicker.css'
-
-import App from './App'
+import StartApp from './start/StartApp'
 import './index.scss'
 
-render(<App/>, document.getElementById('root'))
+render(
+    <StrictMode>
+        <StartApp/>
+    </StrictMode>,
+    document.getElementById('root')
+)

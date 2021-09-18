@@ -44,5 +44,8 @@
     "error403": "We are sorry, but you don't have access to this page or resource",
     "error500": "Sorry, we had some technical problems during your last operation",
     "backToHome": "Back To Home",
-    "checkInCheckOut": "Check In - Check Out"
+    "checkInCheckOut": "Check In - Check Out",
+    "subscribeTitle": "Stay in touch",
+    "subscribeSubtitle": "Subscribe to the latest updates and be the first to know about new products and special offers",
+    "agreePrivacyPolicy": "I agree to the Privacy Policy"
 }

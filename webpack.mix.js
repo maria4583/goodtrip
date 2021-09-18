@@ -23,5 +23,6 @@ mix
             config.devServer.devMiddleware = config.devServer.dev;
             delete config.devServer.dev;
         }
-    });
+    })
+
 

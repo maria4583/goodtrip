@@ -1,0 +1,82 @@
+@import "@/common/styles/variables";
+@import "@/common/styles/colors";
+
+.container {
+    height: calc(90vh + 90px);
+    display: flex;
+    justify-content: center;
+    background: white;
+    position: relative;
+
+    .slider::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color: rgba(39, 42, 51, .7);
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 100;
+    }
+
+    .content {
+        width: 100%;
+        background-color: transparent;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 200;
+
+        .mainText {
+            color: #fff;
+            text-align: center;
+            margin-top: 70px;
+
+            h2 {
+                font-size: 45px;
+            }
+
+            p {
+                font-size: 25px;
+            }
+        }
+
+        .form {
+            background: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 30px;
+            padding: 10px;
+            margin-top: 150px;
+
+            .input {
+                height: 40px;
+                flex: 1;
+                margin-left: 20px;
+
+                input {
+                    width: 100%;
+                    height: 100%;
+                    font-size: 19px;
+                    font-weight: 500;
+                    color: gray;
+                }
+            }
+
+            .input:not(:last-of-type) {
+                border-right: 1px solid $light_gray;
+            }
+
+            .button {
+                background: $primary;
+                color: #fff;
+                font-size: 19px;
+                font-weight: 600;
+                border-radius: 25px;
+                padding: 15px 50px;
+                cursor: pointer;
+            }
+        }
+    }
+}

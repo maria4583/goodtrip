@@ -1,11 +1,23 @@
-import Hero from './components/hero/hero'
+import {
+    Hero,
+    Categories,
+    Directions,
+    Blog,
+    Subscribe,
+    Reviews
+} from './components'
 
 import './home.scss'
 
 const Home = () => {
     return (
         <div>
-            <Hero />
+            <Hero/>
+            <Categories/>
+            <Directions/>
+            <Blog/>
+            <Subscribe/>
+            <Reviews/>
         </div>
     )
 }

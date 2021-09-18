@@ -1,19 +1,19 @@
+import {Link} from 'react-router-dom'
 import {
     Container,
     Grid,
-    Box,
     Typography,
     TextField,
     FormControlLabel,
     Checkbox,
     Button
 } from '@material-ui/core'
-import { useTranslation } from 'react-i18next'
+import {useTranslation, Trans} from 'react-i18next'
 
 import styles from './subscribe.module.scss'
 
 const Subscribe = () => {
-    const { t } = useTranslation()
+    const {t} = useTranslation()
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -24,10 +24,10 @@ const Subscribe = () => {
             <Grid container justifyContent="space-between">
                 <Grid item xs={5}>
                     <Typography gutterBottom variant="h3" component="h2">
-                        Будьте в курсе
+                        {t('subscribeTitle')}
                     </Typography>
                     <Typography variant="h6" component="p">
-                        Подпишитесь на последние обновления и узнавайте о новинках и специальных предложениях первыми
+                        {t('subscribeSubtitle')}
                     </Typography>
                 </Grid>
                 <Grid item xs={6} component="form" onSubmit={handleSubmit}>
@@ -41,14 +41,17 @@ const Subscribe = () => {
                             name="email"
                             autoComplete="email"
                             className={styles.textField}
-                            InputProps={{ className: styles.input }}
+                            InputProps={{className: styles.input}}
                         />
                     </Grid>
 
                     <Grid item>
                         <FormControlLabel
-                            control={<Checkbox value="allowExtraEmails" color="primary" />}
-                            label="Подтверждаю, что я ознакомлен с политикой конфиденциальности"
+                            control={<Checkbox value="allowExtraEmails" color="primary"/>}
+                            label={<Trans
+                                defaults="agreePrivacyPolicy"
+                                components={{ link: <Link to="/privacy-policy"/> }}
+                            />}
                             className={styles.checkbox}
                         />
                     </Grid>

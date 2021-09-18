@@ -16,16 +16,16 @@ const socialList = [
 ]
 
 const navigationList = [
-    {link: 'aboutUs', label: 'aboutUs'},
-    {link: 'paymentMethods', label: 'paymentMethods'},
-    {link: 'reviews', label: 'reviews'},
-    {link: 'blog', label: 'blog'},
-    {link: 'privacyAndTerms', label: 'privacyAndTerms'},
-    {link: 'sitemap', label: 'sitemap'},
-    {link: 'knowledgeBase', label: 'knowledgeBase'},
-    {link: 'howItWorks', label: 'howItWorks'},
-    {link: 'support', label: 'support'},
-    {link: 'contact', label: 'contact'}
+    {link: RouteList.aboutUs, label: 'aboutUs'},
+    {link: RouteList.paymentMethods, label: 'paymentMethods'},
+    {link: RouteList.reviews, label: 'reviews'},
+    {link: RouteList.blog, label: 'blog'},
+    {link: RouteList.privacyAndTerms, label: 'privacyAndTerms'},
+    {link: RouteList.sitemap, label: 'sitemap'},
+    {link: RouteList.knowledgeBase, label: 'knowledgeBase'},
+    {link: RouteList.howItWorks, label: 'howItWorks'},
+    {link: RouteList.support, label: 'support'},
+    {link: RouteList.contact, label: 'contact'}
 ]
 
 const Footer = () => {

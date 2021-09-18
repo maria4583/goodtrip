@@ -1,15 +1,21 @@
 import {useState} from 'react'
 import {useHistory} from 'react-router-dom'
-import {DateRangePicker} from "react-dates"
-import moment from 'moment'
-import './hero.scss'
+import {useTranslation} from 'react-i18next'
+import {Container} from '@material-ui/core'
+import {Swiper, SwiperSlide} from 'swiper/react'
+import {Autoplay, EffectFade} from 'swiper'
+
+import {DateRange} from '@/components/generics'
+
+import styles from './hero.module.scss'
 
 const Hero = () => {
-    const [startDate, setStartDate] = useState(moment())
-    const [endDate, setEndDate] = useState(moment().add(2, 'days'))
-    const [focusedInput, setFocusedInput] = useState()
+    const [hotel, setHotel] = useState('')
+    const [city, setCity] = useState('')
+    const [dates, setDates] = useState([])
 
     const history = useHistory()
+    const {t} = useTranslation()
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -17,47 +23,50 @@ const Hero = () => {
     }
 
     return (
-        <section className="hero">
-            <div className="wrapper">
-                <div className="main-text">
-                    <h2>Найдите свой идеальный отель</h2>
-                    <p>Путешествуйте по всему миру, чувствуя себя как дома</p>
+        <section className={styles.container}>
+            <Swiper
+                className={styles.slider}
+                modules={[Autoplay, EffectFade]}
+                effect="fade"
+                loop={true}
+                autoplay={{
+                    delay: 3000,
+                    disableOnInteraction: true
+                }}
+            >
+                <SwiperSlide>
+                    <img src="images/background-1.jpg" alt=""/>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img src="images/background-2.jpg" alt=""/>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img src="images/background-3.jpg" alt=""/>
+                </SwiperSlide>
+            </Swiper>
+
+            <div className={styles.content}>
+                <div className={styles.mainText}>
+                    <h2>{t('heroTitle')}</h2>
+                    <p>{t('heroSubTitle')}</p>
                 </div>
-                <form className="search-form" onSubmit={handleSubmit}>
-                    <div className="search-form__input">
-                        <input type="text" placeholder="Название отеля"/>
+                <Container className={styles.form} component="form" onSubmit={handleSubmit}>
+                    <div className={styles.input}>
+                        <input type="text" placeholder={t('hotelName')}/>
                     </div>
-                    <div className="search-form__input">
-                        <input type="text" placeholder="Город"/>
+                    <div className={styles.input}>
+                        <input type="text" placeholder={t('city')}/>
                     </div>
-                    <div className="search-form__input">
-                        <DateRangePicker
-                            titleText="Дата въезда - выезда"
-                            startDatePlaceholderText="Дата въезда"
-                            endDatePlaceholderText="Дата выезда"
-                            minimumNights={1}
-                            startDate={startDate}
-                            minDate={startDate}
-                            maxDate={endDate}
-                            hideKeyboardShortcutsPanel={true}
-                            noBorder={true}
-                            startDateId="start_date_id"
-                            endDate={endDate}
-                            endDateId="end_date_id"
-                            onDatesChange={({start, end}) => {
-                                setStartDate(start)
-                                setEndDate(end)
-                            }}
-                            focusedInput={focusedInput}
-                            onFocusChange={value => setFocusedInput(value)}
-                        />
+                    <div className={styles.input}>
+                        <DateRange dates={dates} setDates={setDates}/>
                     </div>
 
-                    <button type="submit" className="search-form__button">Поиск</button>
-                </form>
+                    <button type="submit" className={styles.button}>{t('search')}</button>
+                </Container>
             </div>
         </section>
     )
 }
 
 export default Hero
+
