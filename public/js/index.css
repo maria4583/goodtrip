@@ -68,7 +68,7 @@
 }
 
 ._1QHLgX3lFoPwqEp3eZ8xVI {
-  height: 10vh;
+  height: 12vh;
   display: flex !important;
   align-items: center;
   justify-content: space-between;
@@ -158,7 +158,7 @@
 }
 
 ._1dQWayFTucw19kIFmNRerI {
-  height: calc(90vh + 90px);
+  height: calc(88vh + 90px);
   display: flex;
   justify-content: center;
   background: white;
@@ -367,7 +367,6 @@
 .container h1 {
   color: red;
 }
-
 
 
 .flatpickr-calendar {

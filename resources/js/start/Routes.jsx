@@ -18,11 +18,12 @@ const Routes = () => (
                             exact={route.exact}
                             path={route.path}
                             key={route.path}
-                            render={() => (
+                            render={routeParams => (
                                 <Auth
                                     route={route}
                                     template={template}
                                     type={type}
+                                    routeParams={routeParams}
                                 />
                             )}
                         />

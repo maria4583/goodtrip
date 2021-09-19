@@ -1,8 +1,14 @@
-import styles from './blog.module.scss'
+import {useState} from 'react'
+import {Container} from '@material-ui/core'
+
+import {Topics, Articles} from './components'
 
 const Blog = () => {
     return (
-        <div>Blog</div>
+        <Container>
+            <Topics/>
+            <Articles/>
+        </Container>
     )
 }
 

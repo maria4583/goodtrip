@@ -2123,6 +2123,554 @@ var Checkbox = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.forwardRef(functi
 
 /***/ }),
 
+/***/ "./node_modules/@material-ui/core/esm/Chip/Chip.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/Chip/Chip.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "styles": () => (/* binding */ styles),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var _internal_svg_icons_Cancel__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../internal/svg-icons/Cancel */ "./node_modules/@material-ui/core/esm/internal/svg-icons/Cancel.js");
+/* harmony import */ var _styles_withStyles__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../styles/withStyles */ "./node_modules/@material-ui/core/esm/styles/withStyles.js");
+/* harmony import */ var _styles_colorManipulator__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../styles/colorManipulator */ "./node_modules/@material-ui/core/esm/styles/colorManipulator.js");
+/* harmony import */ var _utils_useForkRef__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../utils/useForkRef */ "./node_modules/@material-ui/core/esm/utils/useForkRef.js");
+/* harmony import */ var _utils_unsupportedProp__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../utils/unsupportedProp */ "./node_modules/@material-ui/core/esm/utils/unsupportedProp.js");
+/* harmony import */ var _utils_capitalize__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../utils/capitalize */ "./node_modules/@material-ui/core/esm/utils/capitalize.js");
+/* harmony import */ var _ButtonBase__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../ButtonBase */ "./node_modules/@material-ui/core/esm/ButtonBase/ButtonBase.js");
+
+
+
+
+
+
+
+
+
+
+
+
+var styles = function styles(theme) {
+  var backgroundColor = theme.palette.type === 'light' ? theme.palette.grey[300] : theme.palette.grey[700];
+  var deleteIconColor = (0,_styles_colorManipulator__WEBPACK_IMPORTED_MODULE_5__.alpha)(theme.palette.text.primary, 0.26);
+  return {
+    /* Styles applied to the root element. */
+    root: {
+      fontFamily: theme.typography.fontFamily,
+      fontSize: theme.typography.pxToRem(13),
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      height: 32,
+      color: theme.palette.getContrastText(backgroundColor),
+      backgroundColor: backgroundColor,
+      borderRadius: 32 / 2,
+      whiteSpace: 'nowrap',
+      transition: theme.transitions.create(['background-color', 'box-shadow']),
+      // label will inherit this from root, then `clickable` class overrides this for both
+      cursor: 'default',
+      // We disable the focus ring for mouse, touch and keyboard users.
+      outline: 0,
+      textDecoration: 'none',
+      border: 'none',
+      // Remove `button` border
+      padding: 0,
+      // Remove `button` padding
+      verticalAlign: 'middle',
+      boxSizing: 'border-box',
+      '&$disabled': {
+        opacity: 0.5,
+        pointerEvents: 'none'
+      },
+      '& $avatar': {
+        marginLeft: 5,
+        marginRight: -6,
+        width: 24,
+        height: 24,
+        color: theme.palette.type === 'light' ? theme.palette.grey[700] : theme.palette.grey[300],
+        fontSize: theme.typography.pxToRem(12)
+      },
+      '& $avatarColorPrimary': {
+        color: theme.palette.primary.contrastText,
+        backgroundColor: theme.palette.primary.dark
+      },
+      '& $avatarColorSecondary': {
+        color: theme.palette.secondary.contrastText,
+        backgroundColor: theme.palette.secondary.dark
+      },
+      '& $avatarSmall': {
+        marginLeft: 4,
+        marginRight: -4,
+        width: 18,
+        height: 18,
+        fontSize: theme.typography.pxToRem(10)
+      }
+    },
+
+    /* Styles applied to the root element if `size="small"`. */
+    sizeSmall: {
+      height: 24
+    },
+
+    /* Styles applied to the root element if `color="primary"`. */
+    colorPrimary: {
+      backgroundColor: theme.palette.primary.main,
+      color: theme.palette.primary.contrastText
+    },
+
+    /* Styles applied to the root element if `color="secondary"`. */
+    colorSecondary: {
+      backgroundColor: theme.palette.secondary.main,
+      color: theme.palette.secondary.contrastText
+    },
+
+    /* Pseudo-class applied to the root element if `disabled={true}`. */
+    disabled: {},
+
+    /* Styles applied to the root element if `onClick` is defined or `clickable={true}`. */
+    clickable: {
+      userSelect: 'none',
+      WebkitTapHighlightColor: 'transparent',
+      cursor: 'pointer',
+      '&:hover, &:focus': {
+        backgroundColor: (0,_styles_colorManipulator__WEBPACK_IMPORTED_MODULE_5__.emphasize)(backgroundColor, 0.08)
+      },
+      '&:active': {
+        boxShadow: theme.shadows[1]
+      }
+    },
+
+    /* Styles applied to the root element if `onClick` and `color="primary"` is defined or `clickable={true}`. */
+    clickableColorPrimary: {
+      '&:hover, &:focus': {
+        backgroundColor: (0,_styles_colorManipulator__WEBPACK_IMPORTED_MODULE_5__.emphasize)(theme.palette.primary.main, 0.08)
+      }
+    },
+
+    /* Styles applied to the root element if `onClick` and `color="secondary"` is defined or `clickable={true}`. */
+    clickableColorSecondary: {
+      '&:hover, &:focus': {
+        backgroundColor: (0,_styles_colorManipulator__WEBPACK_IMPORTED_MODULE_5__.emphasize)(theme.palette.secondary.main, 0.08)
+      }
+    },
+
+    /* Styles applied to the root element if `onDelete` is defined. */
+    deletable: {
+      '&:focus': {
+        backgroundColor: (0,_styles_colorManipulator__WEBPACK_IMPORTED_MODULE_5__.emphasize)(backgroundColor, 0.08)
+      }
+    },
+
+    /* Styles applied to the root element if `onDelete` and `color="primary"` is defined. */
+    deletableColorPrimary: {
+      '&:focus': {
+        backgroundColor: (0,_styles_colorManipulator__WEBPACK_IMPORTED_MODULE_5__.emphasize)(theme.palette.primary.main, 0.2)
+      }
+    },
+
+    /* Styles applied to the root element if `onDelete` and `color="secondary"` is defined. */
+    deletableColorSecondary: {
+      '&:focus': {
+        backgroundColor: (0,_styles_colorManipulator__WEBPACK_IMPORTED_MODULE_5__.emphasize)(theme.palette.secondary.main, 0.2)
+      }
+    },
+
+    /* Styles applied to the root element if `variant="outlined"`. */
+    outlined: {
+      backgroundColor: 'transparent',
+      border: "1px solid ".concat(theme.palette.type === 'light' ? 'rgba(0, 0, 0, 0.23)' : 'rgba(255, 255, 255, 0.23)'),
+      '$clickable&:hover, $clickable&:focus, $deletable&:focus': {
+        backgroundColor: (0,_styles_colorManipulator__WEBPACK_IMPORTED_MODULE_5__.alpha)(theme.palette.text.primary, theme.palette.action.hoverOpacity)
+      },
+      '& $avatar': {
+        marginLeft: 4
+      },
+      '& $avatarSmall': {
+        marginLeft: 2
+      },
+      '& $icon': {
+        marginLeft: 4
+      },
+      '& $iconSmall': {
+        marginLeft: 2
+      },
+      '& $deleteIcon': {
+        marginRight: 5
+      },
+      '& $deleteIconSmall': {
+        marginRight: 3
+      }
+    },
+
+    /* Styles applied to the root element if `variant="outlined"` and `color="primary"`. */
+    outlinedPrimary: {
+      color: theme.palette.primary.main,
+      border: "1px solid ".concat(theme.palette.primary.main),
+      '$clickable&:hover, $clickable&:focus, $deletable&:focus': {
+        backgroundColor: (0,_styles_colorManipulator__WEBPACK_IMPORTED_MODULE_5__.alpha)(theme.palette.primary.main, theme.palette.action.hoverOpacity)
+      }
+    },
+
+    /* Styles applied to the root element if `variant="outlined"` and `color="secondary"`. */
+    outlinedSecondary: {
+      color: theme.palette.secondary.main,
+      border: "1px solid ".concat(theme.palette.secondary.main),
+      '$clickable&:hover, $clickable&:focus, $deletable&:focus': {
+        backgroundColor: (0,_styles_colorManipulator__WEBPACK_IMPORTED_MODULE_5__.alpha)(theme.palette.secondary.main, theme.palette.action.hoverOpacity)
+      }
+    },
+    // TODO v5: remove
+
+    /* Styles applied to the `avatar` element. */
+    avatar: {},
+
+    /* Styles applied to the `avatar` element if `size="small"`. */
+    avatarSmall: {},
+
+    /* Styles applied to the `avatar` element if `color="primary"`. */
+    avatarColorPrimary: {},
+
+    /* Styles applied to the `avatar` element if `color="secondary"`. */
+    avatarColorSecondary: {},
+
+    /* Styles applied to the `icon` element. */
+    icon: {
+      color: theme.palette.type === 'light' ? theme.palette.grey[700] : theme.palette.grey[300],
+      marginLeft: 5,
+      marginRight: -6
+    },
+
+    /* Styles applied to the `icon` element if `size="small"`. */
+    iconSmall: {
+      width: 18,
+      height: 18,
+      marginLeft: 4,
+      marginRight: -4
+    },
+
+    /* Styles applied to the `icon` element if `color="primary"`. */
+    iconColorPrimary: {
+      color: 'inherit'
+    },
+
+    /* Styles applied to the `icon` element if `color="secondary"`. */
+    iconColorSecondary: {
+      color: 'inherit'
+    },
+
+    /* Styles applied to the label `span` element. */
+    label: {
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+      paddingLeft: 12,
+      paddingRight: 12,
+      whiteSpace: 'nowrap'
+    },
+
+    /* Styles applied to the label `span` element if `size="small"`. */
+    labelSmall: {
+      paddingLeft: 8,
+      paddingRight: 8
+    },
+
+    /* Styles applied to the `deleteIcon` element. */
+    deleteIcon: {
+      WebkitTapHighlightColor: 'transparent',
+      color: deleteIconColor,
+      height: 22,
+      width: 22,
+      cursor: 'pointer',
+      margin: '0 5px 0 -6px',
+      '&:hover': {
+        color: (0,_styles_colorManipulator__WEBPACK_IMPORTED_MODULE_5__.alpha)(deleteIconColor, 0.4)
+      }
+    },
+
+    /* Styles applied to the `deleteIcon` element if `size="small"`. */
+    deleteIconSmall: {
+      height: 16,
+      width: 16,
+      marginRight: 4,
+      marginLeft: -4
+    },
+
+    /* Styles applied to the deleteIcon element if `color="primary"` and `variant="default"`. */
+    deleteIconColorPrimary: {
+      color: (0,_styles_colorManipulator__WEBPACK_IMPORTED_MODULE_5__.alpha)(theme.palette.primary.contrastText, 0.7),
+      '&:hover, &:active': {
+        color: theme.palette.primary.contrastText
+      }
+    },
+
+    /* Styles applied to the deleteIcon element if `color="secondary"` and `variant="default"`. */
+    deleteIconColorSecondary: {
+      color: (0,_styles_colorManipulator__WEBPACK_IMPORTED_MODULE_5__.alpha)(theme.palette.secondary.contrastText, 0.7),
+      '&:hover, &:active': {
+        color: theme.palette.secondary.contrastText
+      }
+    },
+
+    /* Styles applied to the deleteIcon element if `color="primary"` and `variant="outlined"`. */
+    deleteIconOutlinedColorPrimary: {
+      color: (0,_styles_colorManipulator__WEBPACK_IMPORTED_MODULE_5__.alpha)(theme.palette.primary.main, 0.7),
+      '&:hover, &:active': {
+        color: theme.palette.primary.main
+      }
+    },
+
+    /* Styles applied to the deleteIcon element if `color="secondary"` and `variant="outlined"`. */
+    deleteIconOutlinedColorSecondary: {
+      color: (0,_styles_colorManipulator__WEBPACK_IMPORTED_MODULE_5__.alpha)(theme.palette.secondary.main, 0.7),
+      '&:hover, &:active': {
+        color: theme.palette.secondary.main
+      }
+    }
+  };
+};
+
+function isDeleteKeyboardEvent(keyboardEvent) {
+  return keyboardEvent.key === 'Backspace' || keyboardEvent.key === 'Delete';
+}
+/**
+ * Chips represent complex entities in small blocks, such as a contact.
+ */
+
+
+var Chip = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.forwardRef(function Chip(props, ref) {
+  var avatarProp = props.avatar,
+      classes = props.classes,
+      className = props.className,
+      clickableProp = props.clickable,
+      _props$color = props.color,
+      color = _props$color === void 0 ? 'default' : _props$color,
+      ComponentProp = props.component,
+      deleteIconProp = props.deleteIcon,
+      _props$disabled = props.disabled,
+      disabled = _props$disabled === void 0 ? false : _props$disabled,
+      iconProp = props.icon,
+      label = props.label,
+      onClick = props.onClick,
+      onDelete = props.onDelete,
+      onKeyDown = props.onKeyDown,
+      onKeyUp = props.onKeyUp,
+      _props$size = props.size,
+      size = _props$size === void 0 ? 'medium' : _props$size,
+      _props$variant = props.variant,
+      variant = _props$variant === void 0 ? 'default' : _props$variant,
+      other = (0,_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__.default)(props, ["avatar", "classes", "className", "clickable", "color", "component", "deleteIcon", "disabled", "icon", "label", "onClick", "onDelete", "onKeyDown", "onKeyUp", "size", "variant"]);
+
+  var chipRef = react__WEBPACK_IMPORTED_MODULE_2__.useRef(null);
+  var handleRef = (0,_utils_useForkRef__WEBPACK_IMPORTED_MODULE_6__.default)(chipRef, ref);
+
+  var handleDeleteIconClick = function handleDeleteIconClick(event) {
+    // Stop the event from bubbling up to the `Chip`
+    event.stopPropagation();
+
+    if (onDelete) {
+      onDelete(event);
+    }
+  };
+
+  var handleKeyDown = function handleKeyDown(event) {
+    // Ignore events from children of `Chip`.
+    if (event.currentTarget === event.target && isDeleteKeyboardEvent(event)) {
+      // will be handled in keyUp, otherwise some browsers
+      // might init navigation
+      event.preventDefault();
+    }
+
+    if (onKeyDown) {
+      onKeyDown(event);
+    }
+  };
+
+  var handleKeyUp = function handleKeyUp(event) {
+    // Ignore events from children of `Chip`.
+    if (event.currentTarget === event.target) {
+      if (onDelete && isDeleteKeyboardEvent(event)) {
+        onDelete(event);
+      } else if (event.key === 'Escape' && chipRef.current) {
+        chipRef.current.blur();
+      }
+    }
+
+    if (onKeyUp) {
+      onKeyUp(event);
+    }
+  };
+
+  var clickable = clickableProp !== false && onClick ? true : clickableProp;
+  var small = size === 'small';
+  var Component = ComponentProp || (clickable ? _ButtonBase__WEBPACK_IMPORTED_MODULE_7__.default : 'div');
+  var moreProps = Component === _ButtonBase__WEBPACK_IMPORTED_MODULE_7__.default ? {
+    component: 'div'
+  } : {};
+  var deleteIcon = null;
+
+  if (onDelete) {
+    var customClasses = (0,clsx__WEBPACK_IMPORTED_MODULE_4__.default)(color !== 'default' && (variant === "default" ? classes["deleteIconColor".concat((0,_utils_capitalize__WEBPACK_IMPORTED_MODULE_8__.default)(color))] : classes["deleteIconOutlinedColor".concat((0,_utils_capitalize__WEBPACK_IMPORTED_MODULE_8__.default)(color))]), small && classes.deleteIconSmall);
+    deleteIcon = deleteIconProp && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.isValidElement(deleteIconProp) ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.cloneElement(deleteIconProp, {
+      className: (0,clsx__WEBPACK_IMPORTED_MODULE_4__.default)(deleteIconProp.props.className, classes.deleteIcon, customClasses),
+      onClick: handleDeleteIconClick
+    }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_internal_svg_icons_Cancel__WEBPACK_IMPORTED_MODULE_9__.default, {
+      className: (0,clsx__WEBPACK_IMPORTED_MODULE_4__.default)(classes.deleteIcon, customClasses),
+      onClick: handleDeleteIconClick
+    });
+  }
+
+  var avatar = null;
+
+  if (avatarProp && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.isValidElement(avatarProp)) {
+    avatar = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.cloneElement(avatarProp, {
+      className: (0,clsx__WEBPACK_IMPORTED_MODULE_4__.default)(classes.avatar, avatarProp.props.className, small && classes.avatarSmall, color !== 'default' && classes["avatarColor".concat((0,_utils_capitalize__WEBPACK_IMPORTED_MODULE_8__.default)(color))])
+    });
+  }
+
+  var icon = null;
+
+  if (iconProp && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.isValidElement(iconProp)) {
+    icon = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.cloneElement(iconProp, {
+      className: (0,clsx__WEBPACK_IMPORTED_MODULE_4__.default)(classes.icon, iconProp.props.className, small && classes.iconSmall, color !== 'default' && classes["iconColor".concat((0,_utils_capitalize__WEBPACK_IMPORTED_MODULE_8__.default)(color))])
+    });
+  }
+
+  if (true) {
+    if (avatar && icon) {
+      console.error('Material-UI: The Chip component can not handle the avatar ' + 'and the icon prop at the same time. Pick one.');
+    }
+  }
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(Component, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({
+    role: clickable || onDelete ? 'button' : undefined,
+    className: (0,clsx__WEBPACK_IMPORTED_MODULE_4__.default)(classes.root, className, color !== 'default' && [classes["color".concat((0,_utils_capitalize__WEBPACK_IMPORTED_MODULE_8__.default)(color))], clickable && classes["clickableColor".concat((0,_utils_capitalize__WEBPACK_IMPORTED_MODULE_8__.default)(color))], onDelete && classes["deletableColor".concat((0,_utils_capitalize__WEBPACK_IMPORTED_MODULE_8__.default)(color))]], variant !== "default" && [classes.outlined, {
+      'primary': classes.outlinedPrimary,
+      'secondary': classes.outlinedSecondary
+    }[color]], disabled && classes.disabled, small && classes.sizeSmall, clickable && classes.clickable, onDelete && classes.deletable),
+    "aria-disabled": disabled ? true : undefined,
+    tabIndex: clickable || onDelete ? 0 : undefined,
+    onClick: onClick,
+    onKeyDown: handleKeyDown,
+    onKeyUp: handleKeyUp,
+    ref: handleRef
+  }, moreProps, other), avatar || icon, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement("span", {
+    className: (0,clsx__WEBPACK_IMPORTED_MODULE_4__.default)(classes.label, small && classes.labelSmall)
+  }, label), deleteIcon);
+});
+ true ? Chip.propTypes = {
+  // ----------------------------- Warning --------------------------------
+  // | These PropTypes are generated from the TypeScript type definitions |
+  // |     To update them edit the d.ts file and run "yarn proptypes"     |
+  // ----------------------------------------------------------------------
+
+  /**
+   * Avatar element.
+   */
+  avatar: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().element),
+
+  /**
+   * This prop isn't supported.
+   * Use the `component` prop if you need to change the children structure.
+   */
+  children: _utils_unsupportedProp__WEBPACK_IMPORTED_MODULE_10__.default,
+
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css) below for more details.
+   */
+  classes: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().object),
+
+  /**
+   * @ignore
+   */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().string),
+
+  /**
+   * If `true`, the chip will appear clickable, and will raise when pressed,
+   * even if the onClick prop is not defined.
+   * If false, the chip will not be clickable, even if onClick prop is defined.
+   * This can be used, for example,
+   * along with the component prop to indicate an anchor Chip is clickable.
+   */
+  clickable: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().bool),
+
+  /**
+   * The color of the component. It supports those theme colors that make sense for this component.
+   */
+  color: prop_types__WEBPACK_IMPORTED_MODULE_3___default().oneOf(['default', 'primary', 'secondary']),
+
+  /**
+   * The component used for the root node.
+   * Either a string to use a HTML element or a component.
+   */
+  component: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().elementType),
+
+  /**
+   * Override the default delete icon element. Shown only if `onDelete` is set.
+   */
+  deleteIcon: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().element),
+
+  /**
+   * If `true`, the chip should be displayed in a disabled state.
+   */
+  disabled: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().bool),
+
+  /**
+   * Icon element.
+   */
+  icon: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().element),
+
+  /**
+   * The content of the label.
+   */
+  label: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().node),
+
+  /**
+   * @ignore
+   */
+  onClick: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().func),
+
+  /**
+   * Callback function fired when the delete icon is clicked.
+   * If set, the delete icon will be shown.
+   */
+  onDelete: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().func),
+
+  /**
+   * @ignore
+   */
+  onKeyDown: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().func),
+
+  /**
+   * @ignore
+   */
+  onKeyUp: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().func),
+
+  /**
+   * The size of the chip.
+   */
+  size: prop_types__WEBPACK_IMPORTED_MODULE_3___default().oneOf(['medium', 'small']),
+
+  /**
+   * The variant to use.
+   */
+  variant: prop_types__WEBPACK_IMPORTED_MODULE_3___default().oneOf(['default', 'outlined'])
+} : 0;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_styles_withStyles__WEBPACK_IMPORTED_MODULE_11__.default)(styles, {
+  name: 'MuiChip'
+})(Chip));
+
+/***/ }),
+
 /***/ "./node_modules/@material-ui/core/esm/Container/Container.js":
 /*!*******************************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/Container/Container.js ***!
@@ -2921,6 +3469,172 @@ var Dialog = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.forwardRef(function
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_styles_withStyles__WEBPACK_IMPORTED_MODULE_13__.default)(styles, {
   name: 'MuiDialog'
 })(Dialog));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/core/esm/Divider/Divider.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/Divider/Divider.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "styles": () => (/* binding */ styles),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var _styles_withStyles__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../styles/withStyles */ "./node_modules/@material-ui/core/esm/styles/withStyles.js");
+/* harmony import */ var _styles_colorManipulator__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../styles/colorManipulator */ "./node_modules/@material-ui/core/esm/styles/colorManipulator.js");
+
+
+
+
+
+
+
+var styles = function styles(theme) {
+  return {
+    /* Styles applied to the root element. */
+    root: {
+      height: 1,
+      margin: 0,
+      // Reset browser default style.
+      border: 'none',
+      flexShrink: 0,
+      backgroundColor: theme.palette.divider
+    },
+
+    /* Styles applied to the root element if `absolute={true}`. */
+    absolute: {
+      position: 'absolute',
+      bottom: 0,
+      left: 0,
+      width: '100%'
+    },
+
+    /* Styles applied to the root element if `variant="inset"`. */
+    inset: {
+      marginLeft: 72
+    },
+
+    /* Styles applied to the root element if `light={true}`. */
+    light: {
+      backgroundColor: (0,_styles_colorManipulator__WEBPACK_IMPORTED_MODULE_5__.alpha)(theme.palette.divider, 0.08)
+    },
+
+    /* Styles applied to the root element if `variant="middle"`. */
+    middle: {
+      marginLeft: theme.spacing(2),
+      marginRight: theme.spacing(2)
+    },
+
+    /* Styles applied to the root element if `orientation="vertical"`. */
+    vertical: {
+      height: '100%',
+      width: 1
+    },
+
+    /* Styles applied to the root element if `flexItem={true}`. */
+    flexItem: {
+      alignSelf: 'stretch',
+      height: 'auto'
+    }
+  };
+};
+var Divider = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.forwardRef(function Divider(props, ref) {
+  var _props$absolute = props.absolute,
+      absolute = _props$absolute === void 0 ? false : _props$absolute,
+      classes = props.classes,
+      className = props.className,
+      _props$component = props.component,
+      Component = _props$component === void 0 ? 'hr' : _props$component,
+      _props$flexItem = props.flexItem,
+      flexItem = _props$flexItem === void 0 ? false : _props$flexItem,
+      _props$light = props.light,
+      light = _props$light === void 0 ? false : _props$light,
+      _props$orientation = props.orientation,
+      orientation = _props$orientation === void 0 ? 'horizontal' : _props$orientation,
+      _props$role = props.role,
+      role = _props$role === void 0 ? Component !== 'hr' ? 'separator' : undefined : _props$role,
+      _props$variant = props.variant,
+      variant = _props$variant === void 0 ? 'fullWidth' : _props$variant,
+      other = (0,_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__.default)(props, ["absolute", "classes", "className", "component", "flexItem", "light", "orientation", "role", "variant"]);
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(Component, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({
+    className: (0,clsx__WEBPACK_IMPORTED_MODULE_4__.default)(classes.root, className, variant !== 'fullWidth' && classes[variant], absolute && classes.absolute, flexItem && classes.flexItem, light && classes.light, orientation === 'vertical' && classes.vertical),
+    role: role,
+    ref: ref
+  }, other));
+});
+ true ? Divider.propTypes = {
+  // ----------------------------- Warning --------------------------------
+  // | These PropTypes are generated from the TypeScript type definitions |
+  // |     To update them edit the d.ts file and run "yarn proptypes"     |
+  // ----------------------------------------------------------------------
+
+  /**
+   * Absolutely position the element.
+   */
+  absolute: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().bool),
+
+  /**
+   * @ignore
+   */
+  children: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().node),
+
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css) below for more details.
+   */
+  classes: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().object),
+
+  /**
+   * @ignore
+   */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().string),
+
+  /**
+   * The component used for the root node.
+   * Either a string to use a HTML element or a component.
+   */
+  component: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().elementType),
+
+  /**
+   * If `true`, a vertical divider will have the correct height when used in flex container.
+   * (By default, a vertical divider will have a calculated height of `0px` if it is the child of a flex container.)
+   */
+  flexItem: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().bool),
+
+  /**
+   * If `true`, the divider will have a lighter color.
+   */
+  light: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().bool),
+
+  /**
+   * The divider orientation.
+   */
+  orientation: prop_types__WEBPACK_IMPORTED_MODULE_3___default().oneOf(['horizontal', 'vertical']),
+
+  /**
+   * @ignore
+   */
+  role: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().string),
+
+  /**
+   * The variant to use.
+   */
+  variant: prop_types__WEBPACK_IMPORTED_MODULE_3___default().oneOf(['fullWidth', 'inset', 'middle'])
+} : 0;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_styles_withStyles__WEBPACK_IMPORTED_MODULE_6__.default)(styles, {
+  name: 'MuiDivider'
+})(Divider));
 
 /***/ }),
 
@@ -14048,6 +14762,31 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/@material-ui/core/esm/internal/svg-icons/Cancel.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/internal/svg-icons/Cancel.js ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _utils_createSvgIcon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/createSvgIcon */ "./node_modules/@material-ui/core/esm/utils/createSvgIcon.js");
+
+
+/**
+ * @ignore - internal component.
+ */
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_utils_createSvgIcon__WEBPACK_IMPORTED_MODULE_1__.default)( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+  d: "M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"
+}), 'Cancel'));
+
+/***/ }),
+
 /***/ "./node_modules/@material-ui/core/esm/internal/svg-icons/CheckBox.js":
 /*!***************************************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/internal/svg-icons/CheckBox.js ***!
@@ -16279,6 +17018,817 @@ function useIsFocusVisible() {
     ref: ref
   };
 }
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/PaginationItem/PaginationItem.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/PaginationItem/PaginationItem.js ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "styles": () => (/* binding */ styles),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/colorManipulator.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/useTheme.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/withStyles.js");
+/* harmony import */ var _material_ui_core_ButtonBase__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @material-ui/core/ButtonBase */ "./node_modules/@material-ui/core/esm/ButtonBase/ButtonBase.js");
+/* harmony import */ var _internal_svg_icons_FirstPage__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../internal/svg-icons/FirstPage */ "./node_modules/@material-ui/lab/esm/internal/svg-icons/FirstPage.js");
+/* harmony import */ var _internal_svg_icons_LastPage__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../internal/svg-icons/LastPage */ "./node_modules/@material-ui/lab/esm/internal/svg-icons/LastPage.js");
+/* harmony import */ var _internal_svg_icons_NavigateBefore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../internal/svg-icons/NavigateBefore */ "./node_modules/@material-ui/lab/esm/internal/svg-icons/NavigateBefore.js");
+/* harmony import */ var _internal_svg_icons_NavigateNext__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../internal/svg-icons/NavigateNext */ "./node_modules/@material-ui/lab/esm/internal/svg-icons/NavigateNext.js");
+/* harmony import */ var _material_ui_core_utils__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core/utils */ "./node_modules/@material-ui/core/esm/utils/capitalize.js");
+
+
+
+
+
+
+
+
+
+
+
+
+var styles = function styles(theme) {
+  return {
+    /* Styles applied to the root element. */
+    root: (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__.default)({}, theme.typography.body2, {
+      borderRadius: 32 / 2,
+      textAlign: 'center',
+      boxSizing: 'border-box',
+      minWidth: 32,
+      height: 32,
+      padding: '0 6px',
+      margin: '0 3px',
+      color: theme.palette.text.primary
+    }),
+
+    /* Styles applied to the root element if `type="page"`. */
+    page: {
+      transition: theme.transitions.create(['color', 'background-color'], {
+        duration: theme.transitions.duration.short
+      }),
+      '&:hover': {
+        backgroundColor: theme.palette.action.hover,
+        // Reset on touch devices, it doesn't add specificity
+        '@media (hover: none)': {
+          backgroundColor: 'transparent'
+        }
+      },
+      '&$focusVisible': {
+        backgroundColor: theme.palette.action.focus
+      },
+      '&$selected': {
+        backgroundColor: theme.palette.action.selected,
+        '&:hover, &$focusVisible': {
+          backgroundColor: (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__.alpha)(theme.palette.action.selected, theme.palette.action.selectedOpacity + theme.palette.action.hoverOpacity),
+          // Reset on touch devices, it doesn't add specificity
+          '@media (hover: none)': {
+            backgroundColor: theme.palette.action.selected
+          }
+        },
+        '&$disabled': {
+          opacity: 1,
+          color: theme.palette.action.disabled,
+          backgroundColor: theme.palette.action.selected
+        }
+      },
+      '&$disabled': {
+        opacity: theme.palette.action.disabledOpacity
+      }
+    },
+
+    /* Styles applied applied to the root element if `size="small"`. */
+    sizeSmall: {
+      minWidth: 26,
+      height: 26,
+      borderRadius: 26 / 2,
+      margin: '0 1px',
+      padding: '0 4px',
+      '& $icon': {
+        fontSize: theme.typography.pxToRem(18)
+      }
+    },
+
+    /* Styles applied applied to the root element if `size="large"`. */
+    sizeLarge: {
+      minWidth: 40,
+      height: 40,
+      borderRadius: 40 / 2,
+      padding: '0 10px',
+      fontSize: theme.typography.pxToRem(15),
+      '& $icon': {
+        fontSize: theme.typography.pxToRem(22)
+      }
+    },
+
+    /* Styles applied to the root element if `variant="text"` and `color="primary"`. */
+    textPrimary: {
+      '&$selected': {
+        color: theme.palette.primary.contrastText,
+        backgroundColor: theme.palette.primary.main,
+        '&:hover, &$focusVisible': {
+          backgroundColor: theme.palette.primary.dark,
+          // Reset on touch devices, it doesn't add specificity
+          '@media (hover: none)': {
+            backgroundColor: theme.palette.primary.main
+          }
+        },
+        '&$disabled': {
+          color: theme.palette.action.disabled
+        }
+      }
+    },
+
+    /* Styles applied to the root element if `variant="text"` and `color="secondary"`. */
+    textSecondary: {
+      '&$selected': {
+        color: theme.palette.secondary.contrastText,
+        backgroundColor: theme.palette.secondary.main,
+        '&:hover, &$focusVisible': {
+          backgroundColor: theme.palette.secondary.dark,
+          // Reset on touch devices, it doesn't add specificity
+          '@media (hover: none)': {
+            backgroundColor: theme.palette.secondary.main
+          }
+        },
+        '&$disabled': {
+          color: theme.palette.action.disabled
+        }
+      }
+    },
+
+    /* Styles applied to the root element if `outlined="true"`. */
+    outlined: {
+      border: "1px solid ".concat(theme.palette.type === 'light' ? 'rgba(0, 0, 0, 0.23)' : 'rgba(255, 255, 255, 0.23)'),
+      '&$selected': {
+        '&$disabled': {
+          border: "1px solid ".concat(theme.palette.action.disabledBackground)
+        }
+      }
+    },
+
+    /* Styles applied to the root element if `variant="outlined"` and `color="primary"`. */
+    outlinedPrimary: {
+      '&$selected': {
+        color: theme.palette.primary.main,
+        border: "1px solid ".concat((0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__.alpha)(theme.palette.primary.main, 0.5)),
+        backgroundColor: (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__.alpha)(theme.palette.primary.main, theme.palette.action.activatedOpacity),
+        '&:hover, &$focusVisible': {
+          backgroundColor: (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__.alpha)(theme.palette.primary.main, theme.palette.action.activatedOpacity + theme.palette.action.hoverOpacity),
+          // Reset on touch devices, it doesn't add specificity
+          '@media (hover: none)': {
+            backgroundColor: 'transparent'
+          }
+        },
+        '&$disabled': {
+          color: theme.palette.action.disabled
+        }
+      }
+    },
+
+    /* Styles applied to the root element if `variant="outlined"` and `color="secondary"`. */
+    outlinedSecondary: {
+      '&$selected': {
+        color: theme.palette.secondary.main,
+        border: "1px solid ".concat((0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__.alpha)(theme.palette.secondary.main, 0.5)),
+        backgroundColor: (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__.alpha)(theme.palette.secondary.main, theme.palette.action.activatedOpacity),
+        '&:hover, &$focusVisible': {
+          backgroundColor: (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__.alpha)(theme.palette.secondary.main, theme.palette.action.activatedOpacity + theme.palette.action.hoverOpacity),
+          // Reset on touch devices, it doesn't add specificity
+          '@media (hover: none)': {
+            backgroundColor: 'transparent'
+          }
+        },
+        '&$disabled': {
+          color: theme.palette.action.disabled
+        }
+      }
+    },
+
+    /* Styles applied to the root element if `rounded="true"`. */
+    rounded: {
+      borderRadius: theme.shape.borderRadius
+    },
+
+    /* Styles applied to the root element if `type="start-ellipsis"` or `type="end-ellipsis"`. */
+    ellipsis: {
+      height: 'auto',
+      '&$disabled': {
+        opacity: theme.palette.action.disabledOpacity
+      }
+    },
+
+    /* Pseudo-class applied to the root element if keyboard focused. */
+    focusVisible: {},
+
+    /* Pseudo-class applied to the root element if `disabled={true}`. */
+    disabled: {},
+
+    /* Pseudo-class applied to the root element if `selected={true}`. */
+    selected: {},
+
+    /* Styles applied to the icon element. */
+    icon: {
+      fontSize: theme.typography.pxToRem(20),
+      margin: '0 -8px'
+    }
+  };
+};
+var PaginationItem = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.forwardRef(function PaginationItem(props, ref) {
+  var classes = props.classes,
+      className = props.className,
+      _props$color = props.color,
+      color = _props$color === void 0 ? 'standard' : _props$color,
+      component = props.component,
+      _props$disabled = props.disabled,
+      disabled = _props$disabled === void 0 ? false : _props$disabled,
+      page = props.page,
+      _props$selected = props.selected,
+      selected = _props$selected === void 0 ? false : _props$selected,
+      _props$shape = props.shape,
+      shape = _props$shape === void 0 ? 'round' : _props$shape,
+      _props$size = props.size,
+      size = _props$size === void 0 ? 'medium' : _props$size,
+      _props$type = props.type,
+      type = _props$type === void 0 ? 'page' : _props$type,
+      _props$variant = props.variant,
+      variant = _props$variant === void 0 ? 'text' : _props$variant,
+      other = (0,_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_0__.default)(props, ["classes", "className", "color", "component", "disabled", "page", "selected", "shape", "size", "type", "variant"]);
+
+  var theme = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_6__.default)();
+  var normalizedIcons = theme.direction === 'rtl' ? {
+    previous: _internal_svg_icons_NavigateNext__WEBPACK_IMPORTED_MODULE_7__.default,
+    next: _internal_svg_icons_NavigateBefore__WEBPACK_IMPORTED_MODULE_8__.default,
+    last: _internal_svg_icons_FirstPage__WEBPACK_IMPORTED_MODULE_9__.default,
+    first: _internal_svg_icons_LastPage__WEBPACK_IMPORTED_MODULE_10__.default
+  } : {
+    previous: _internal_svg_icons_NavigateBefore__WEBPACK_IMPORTED_MODULE_8__.default,
+    next: _internal_svg_icons_NavigateNext__WEBPACK_IMPORTED_MODULE_7__.default,
+    first: _internal_svg_icons_FirstPage__WEBPACK_IMPORTED_MODULE_9__.default,
+    last: _internal_svg_icons_LastPage__WEBPACK_IMPORTED_MODULE_10__.default
+  };
+  var Icon = normalizedIcons[type];
+  return type === 'start-ellipsis' || type === 'end-ellipsis' ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement("div", {
+    ref: ref,
+    className: (0,clsx__WEBPACK_IMPORTED_MODULE_4__.default)(classes.root, classes.ellipsis, disabled && classes.disabled, size !== 'medium' && classes["size".concat((0,_material_ui_core_utils__WEBPACK_IMPORTED_MODULE_11__.default)(size))])
+  }, "\u2026") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core_ButtonBase__WEBPACK_IMPORTED_MODULE_12__.default, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__.default)({
+    ref: ref,
+    component: component,
+    disabled: disabled,
+    focusVisibleClassName: classes.focusVisible,
+    className: (0,clsx__WEBPACK_IMPORTED_MODULE_4__.default)(classes.root, classes.page, classes[variant], classes[shape], className, color !== 'standard' && classes["".concat(variant).concat((0,_material_ui_core_utils__WEBPACK_IMPORTED_MODULE_11__.default)(color))], disabled && classes.disabled, selected && classes.selected, size !== 'medium' && classes["size".concat((0,_material_ui_core_utils__WEBPACK_IMPORTED_MODULE_11__.default)(size))])
+  }, other), type === 'page' && page, Icon ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(Icon, {
+    className: classes.icon
+  }) : null);
+});
+ true ? PaginationItem.propTypes = {
+  /**
+   * @ignore
+   */
+  classes: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().object.isRequired),
+
+  /**
+   * @ignore
+   */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().string),
+
+  /**
+   * The active color.
+   */
+  color: prop_types__WEBPACK_IMPORTED_MODULE_3___default().oneOf(['standard', 'primary', 'secondary']),
+
+  /**
+   * The component used for the root node.
+   * Either a string to use a HTML element or a component.
+   */
+  component: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().elementType),
+
+  /**
+   * If `true`, the item will be disabled.
+   */
+  disabled: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().bool),
+
+  /**
+   * The current page number.
+   */
+  page: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().number),
+
+  /**
+   * If `true` the pagination item is selected.
+   */
+  selected: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().bool),
+
+  /**
+   * The shape of the pagination item.
+   */
+  shape: prop_types__WEBPACK_IMPORTED_MODULE_3___default().oneOf(['round', 'rounded']),
+
+  /**
+   * The size of the pagination item.
+   */
+  size: prop_types__WEBPACK_IMPORTED_MODULE_3___default().oneOf(['small', 'medium', 'large']),
+
+  /**
+   * The type of pagination item.
+   */
+  type: prop_types__WEBPACK_IMPORTED_MODULE_3___default().oneOf(['page', 'first', 'last', 'next', 'previous', 'start-ellipsis', 'end-ellipsis']),
+
+  /**
+   * The pagination item variant.
+   */
+  variant: prop_types__WEBPACK_IMPORTED_MODULE_3___default().oneOf(['text', 'outlined'])
+} : 0;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_13__.default)(styles, {
+  name: 'MuiPaginationItem'
+})(PaginationItem));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/Pagination/Pagination.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/Pagination/Pagination.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "styles": () => (/* binding */ styles),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/withStyles.js");
+/* harmony import */ var _usePagination__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./usePagination */ "./node_modules/@material-ui/lab/esm/Pagination/usePagination.js");
+/* harmony import */ var _PaginationItem__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../PaginationItem */ "./node_modules/@material-ui/lab/esm/PaginationItem/PaginationItem.js");
+
+
+
+
+
+
+
+
+var styles = {
+  /* Styles applied to the root element. */
+  root: {},
+
+  /* Styles applied to the ul element. */
+  ul: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    alignItems: 'center',
+    padding: 0,
+    margin: 0,
+    listStyle: 'none'
+  }
+};
+
+function defaultGetAriaLabel(type, page, selected) {
+  if (type === 'page') {
+    return "".concat(selected ? '' : 'Go to ', "page ").concat(page);
+  }
+
+  return "Go to ".concat(type, " page");
+}
+
+var Pagination = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.forwardRef(function Pagination(props, ref) {
+  var boundaryCount = props.boundaryCount,
+      classes = props.classes,
+      className = props.className,
+      _props$color = props.color,
+      color = _props$color === void 0 ? 'standard' : _props$color,
+      count = props.count,
+      defaultPage = props.defaultPage,
+      disabled = props.disabled,
+      _props$getItemAriaLab = props.getItemAriaLabel,
+      getItemAriaLabel = _props$getItemAriaLab === void 0 ? defaultGetAriaLabel : _props$getItemAriaLab,
+      hideNextButton = props.hideNextButton,
+      hidePrevButton = props.hidePrevButton,
+      onChange = props.onChange,
+      page = props.page,
+      _props$renderItem = props.renderItem,
+      renderItem = _props$renderItem === void 0 ? function (item) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_PaginationItem__WEBPACK_IMPORTED_MODULE_5__.default, item);
+  } : _props$renderItem,
+      _props$shape = props.shape,
+      shape = _props$shape === void 0 ? 'round' : _props$shape,
+      showFirstButton = props.showFirstButton,
+      showLastButton = props.showLastButton,
+      siblingCount = props.siblingCount,
+      _props$size = props.size,
+      size = _props$size === void 0 ? 'medium' : _props$size,
+      _props$variant = props.variant,
+      variant = _props$variant === void 0 ? 'text' : _props$variant,
+      other = (0,_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__.default)(props, ["boundaryCount", "classes", "className", "color", "count", "defaultPage", "disabled", "getItemAriaLabel", "hideNextButton", "hidePrevButton", "onChange", "page", "renderItem", "shape", "showFirstButton", "showLastButton", "siblingCount", "size", "variant"]);
+
+  var _usePagination = (0,_usePagination__WEBPACK_IMPORTED_MODULE_6__.default)((0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({}, props, {
+    componentName: 'Pagination'
+  })),
+      items = _usePagination.items;
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement("nav", (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({
+    "aria-label": "pagination navigation",
+    className: (0,clsx__WEBPACK_IMPORTED_MODULE_4__.default)(classes.root, className),
+    ref: ref
+  }, other), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement("ul", {
+    className: classes.ul
+  }, items.map(function (item, index) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement("li", {
+      key: index
+    }, renderItem((0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({}, item, {
+      color: color,
+      'aria-label': getItemAriaLabel(item.type, item.page, item.selected),
+      shape: shape,
+      size: size,
+      variant: variant
+    })));
+  })));
+}); // @default tags synced with default values from usePagination
+
+ true ? Pagination.propTypes = {
+  // ----------------------------- Warning --------------------------------
+  // | These PropTypes are generated from the TypeScript type definitions |
+  // |     To update them edit the d.ts file and run "yarn proptypes"     |
+  // ----------------------------------------------------------------------
+
+  /**
+   * Number of always visible pages at the beginning and end.
+   * @default 1
+   */
+  boundaryCount: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().number),
+
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css) below for more details.
+   */
+  classes: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().object),
+
+  /**
+   * @ignore
+   */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().string),
+
+  /**
+   * The active color.
+   */
+  color: prop_types__WEBPACK_IMPORTED_MODULE_3___default().oneOf(['primary', 'secondary', 'standard']),
+
+  /**
+   * The total number of pages.
+   * @default 1
+   */
+  count: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().number),
+
+  /**
+   * The page selected by default when the component is uncontrolled.
+   * @default 1
+   */
+  defaultPage: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().number),
+
+  /**
+   * If `true`, the pagination component will be disabled.
+   * @default false
+   */
+  disabled: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().bool),
+
+  /**
+   * Accepts a function which returns a string value that provides a user-friendly name for the current page.
+   *
+   * For localization purposes, you can use the provided [translations](/guides/localization/).
+   *
+   * @param {string} type The link or button type to format ('page' | 'first' | 'last' | 'next' | 'previous'). Defaults to 'page'.
+   * @param {number} page The page number to format.
+   * @param {bool} selected If true, the current page is selected.
+   * @returns {string}
+   */
+  getItemAriaLabel: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().func),
+
+  /**
+   * If `true`, hide the next-page button.
+   * @default false
+   */
+  hideNextButton: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().bool),
+
+  /**
+   * If `true`, hide the previous-page button.
+   * @default false
+   */
+  hidePrevButton: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().bool),
+
+  /**
+   * Callback fired when the page is changed.
+   *
+   * @param {object} event The event source of the callback.
+   * @param {number} page The page selected.
+   */
+  onChange: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().func),
+
+  /**
+   * The current page.
+   */
+  page: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().number),
+
+  /**
+   * Render the item.
+   *
+   * @param {PaginationRenderItemParams} params The props to spread on a PaginationItem.
+   * @returns {ReactNode}
+   */
+  renderItem: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().func),
+
+  /**
+   * The shape of the pagination items.
+   */
+  shape: prop_types__WEBPACK_IMPORTED_MODULE_3___default().oneOf(['round', 'rounded']),
+
+  /**
+   * If `true`, show the first-page button.
+   * @default false
+   */
+  showFirstButton: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().bool),
+
+  /**
+   * If `true`, show the last-page button.
+   * @default false
+   */
+  showLastButton: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().bool),
+
+  /**
+   * Number of always visible pages before and after the current page.
+   * @default 1
+   */
+  siblingCount: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().number),
+
+  /**
+   * The size of the pagination component.
+   */
+  size: prop_types__WEBPACK_IMPORTED_MODULE_3___default().oneOf(['large', 'medium', 'small']),
+
+  /**
+   * The variant to use.
+   */
+  variant: prop_types__WEBPACK_IMPORTED_MODULE_3___default().oneOf(['outlined', 'text'])
+} : 0;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_7__.default)(styles, {
+  name: 'MuiPagination'
+})(Pagination));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/Pagination/usePagination.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/Pagination/usePagination.js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ usePagination)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/toConsumableArray */ "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js");
+/* harmony import */ var _babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var _material_ui_core_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/utils */ "./node_modules/@material-ui/core/esm/utils/useControlled.js");
+
+
+
+
+
+function usePagination() {
+  var props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+  // keep default values in sync with @default tags in Pagination.propTypes
+  var _props$boundaryCount = props.boundaryCount,
+      boundaryCount = _props$boundaryCount === void 0 ? 1 : _props$boundaryCount,
+      _props$componentName = props.componentName,
+      componentName = _props$componentName === void 0 ? 'usePagination' : _props$componentName,
+      _props$count = props.count,
+      count = _props$count === void 0 ? 1 : _props$count,
+      _props$defaultPage = props.defaultPage,
+      defaultPage = _props$defaultPage === void 0 ? 1 : _props$defaultPage,
+      _props$disabled = props.disabled,
+      disabled = _props$disabled === void 0 ? false : _props$disabled,
+      _props$hideNextButton = props.hideNextButton,
+      hideNextButton = _props$hideNextButton === void 0 ? false : _props$hideNextButton,
+      _props$hidePrevButton = props.hidePrevButton,
+      hidePrevButton = _props$hidePrevButton === void 0 ? false : _props$hidePrevButton,
+      handleChange = props.onChange,
+      pageProp = props.page,
+      _props$showFirstButto = props.showFirstButton,
+      showFirstButton = _props$showFirstButto === void 0 ? false : _props$showFirstButto,
+      _props$showLastButton = props.showLastButton,
+      showLastButton = _props$showLastButton === void 0 ? false : _props$showLastButton,
+      _props$siblingCount = props.siblingCount,
+      siblingCount = _props$siblingCount === void 0 ? 1 : _props$siblingCount,
+      other = (0,_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_3__.default)(props, ["boundaryCount", "componentName", "count", "defaultPage", "disabled", "hideNextButton", "hidePrevButton", "onChange", "page", "showFirstButton", "showLastButton", "siblingCount"]);
+
+  var _useControlled = (0,_material_ui_core_utils__WEBPACK_IMPORTED_MODULE_4__.default)({
+    controlled: pageProp,
+    default: defaultPage,
+    name: componentName,
+    state: 'page'
+  }),
+      _useControlled2 = (0,_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_2__.default)(_useControlled, 2),
+      page = _useControlled2[0],
+      setPageState = _useControlled2[1];
+
+  var handleClick = function handleClick(event, value) {
+    if (!pageProp) {
+      setPageState(value);
+    }
+
+    if (handleChange) {
+      handleChange(event, value);
+    }
+  }; // https://dev.to/namirsab/comment/2050
+
+
+  var range = function range(start, end) {
+    var length = end - start + 1;
+    return Array.from({
+      length: length
+    }, function (_, i) {
+      return start + i;
+    });
+  };
+
+  var startPages = range(1, Math.min(boundaryCount, count));
+  var endPages = range(Math.max(count - boundaryCount + 1, boundaryCount + 1), count);
+  var siblingsStart = Math.max(Math.min( // Natural start
+  page - siblingCount, // Lower boundary when page is high
+  count - boundaryCount - siblingCount * 2 - 1), // Greater than startPages
+  boundaryCount + 2);
+  var siblingsEnd = Math.min(Math.max( // Natural end
+  page + siblingCount, // Upper boundary when page is low
+  boundaryCount + siblingCount * 2 + 2), // Less than endPages
+  endPages[0] - 2); // Basic list of items to render
+  // e.g. itemList = ['first', 'previous', 1, 'ellipsis', 4, 5, 6, 'ellipsis', 10, 'next', 'last']
+
+  var itemList = [].concat((0,_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__.default)(showFirstButton ? ['first'] : []), (0,_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__.default)(hidePrevButton ? [] : ['previous']), (0,_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__.default)(startPages), (0,_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__.default)(siblingsStart > boundaryCount + 2 ? ['start-ellipsis'] : boundaryCount + 1 < count - boundaryCount ? [boundaryCount + 1] : []), (0,_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__.default)(range(siblingsStart, siblingsEnd)), (0,_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__.default)(siblingsEnd < count - boundaryCount - 1 ? ['end-ellipsis'] : count - boundaryCount > boundaryCount ? [count - boundaryCount] : []), (0,_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__.default)(endPages), (0,_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__.default)(hideNextButton ? [] : ['next']), (0,_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__.default)(showLastButton ? ['last'] : [])); // Map the button type to its page number
+
+  var buttonPage = function buttonPage(type) {
+    switch (type) {
+      case 'first':
+        return 1;
+
+      case 'previous':
+        return page - 1;
+
+      case 'next':
+        return page + 1;
+
+      case 'last':
+        return count;
+
+      default:
+        return null;
+    }
+  }; // Convert the basic item list to PaginationItem props objects
+
+
+  var items = itemList.map(function (item) {
+    return typeof item === 'number' ? {
+      onClick: function onClick(event) {
+        handleClick(event, item);
+      },
+      type: 'page',
+      page: item,
+      selected: item === page,
+      disabled: disabled,
+      'aria-current': item === page ? 'true' : undefined
+    } : {
+      onClick: function onClick(event) {
+        handleClick(event, buttonPage(item));
+      },
+      type: item,
+      page: buttonPage(item),
+      selected: false,
+      disabled: disabled || item.indexOf('ellipsis') === -1 && (item === 'next' || item === 'last' ? page >= count : page <= 1)
+    };
+  });
+  return (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({
+    items: items
+  }, other);
+}
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/internal/svg-icons/FirstPage.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/internal/svg-icons/FirstPage.js ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _material_ui_core_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/utils */ "./node_modules/@material-ui/core/esm/utils/createSvgIcon.js");
+
+
+/**
+ * @ignore - internal component.
+ */
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_material_ui_core_utils__WEBPACK_IMPORTED_MODULE_1__.default)( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+  d: "M18.41 16.59L13.82 12l4.59-4.59L17 6l-6 6 6 6zM6 6h2v12H6z"
+}), 'FirstPage'));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/internal/svg-icons/LastPage.js":
+/*!**************************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/internal/svg-icons/LastPage.js ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _material_ui_core_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/utils */ "./node_modules/@material-ui/core/esm/utils/createSvgIcon.js");
+
+
+/**
+ * @ignore - internal component.
+ */
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_material_ui_core_utils__WEBPACK_IMPORTED_MODULE_1__.default)( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+  d: "M5.59 7.41L10.18 12l-4.59 4.59L7 18l6-6-6-6zM16 6h2v12h-2z"
+}), 'LastPage'));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/internal/svg-icons/NavigateBefore.js":
+/*!********************************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/internal/svg-icons/NavigateBefore.js ***!
+  \********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _material_ui_core_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/utils */ "./node_modules/@material-ui/core/esm/utils/createSvgIcon.js");
+
+
+/**
+ * @ignore - internal component.
+ */
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_material_ui_core_utils__WEBPACK_IMPORTED_MODULE_1__.default)( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+  d: "M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+}), 'NavigateBefore'));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/internal/svg-icons/NavigateNext.js":
+/*!******************************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/internal/svg-icons/NavigateNext.js ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _material_ui_core_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/utils */ "./node_modules/@material-ui/core/esm/utils/createSvgIcon.js");
+
+
+/**
+ * @ignore - internal component.
+ */
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_material_ui_core_utils__WEBPACK_IMPORTED_MODULE_1__.default)( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+  d: "M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+}), 'NavigateNext'));
 
 /***/ }),
 
@@ -19388,12 +20938,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "LanguageSelect": () => (/* reexport safe */ _language_select_language_select__WEBPACK_IMPORTED_MODULE_0__.default),
 /* harmony export */   "CookieAgreement": () => (/* reexport safe */ _cookie_agreement_cookie_agreement__WEBPACK_IMPORTED_MODULE_1__.default),
 /* harmony export */   "CityCard": () => (/* reexport safe */ _city_city_card_city_card__WEBPACK_IMPORTED_MODULE_2__.default),
-/* harmony export */   "BlogCard": () => (/* reexport safe */ _blog_blog_card_blog_card__WEBPACK_IMPORTED_MODULE_3__.default)
+/* harmony export */   "BlogCard": () => (/* reexport safe */ _blog_blog_card_blog_card__WEBPACK_IMPORTED_MODULE_3__.default),
+/* harmony export */   "Pagination": () => (/* reexport safe */ _pagination_pagination__WEBPACK_IMPORTED_MODULE_4__.default)
 /* harmony export */ });
 /* harmony import */ var _language_select_language_select__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./language-select/language-select */ "./resources/js/components/language-select/language-select.jsx");
 /* harmony import */ var _cookie_agreement_cookie_agreement__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./cookie-agreement/cookie-agreement */ "./resources/js/components/cookie-agreement/cookie-agreement.jsx");
 /* harmony import */ var _city_city_card_city_card__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./city/city-card/city-card */ "./resources/js/components/city/city-card/city-card.jsx");
 /* harmony import */ var _blog_blog_card_blog_card__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./blog/blog-card/blog-card */ "./resources/js/components/blog/blog-card/blog-card.jsx");
+/* harmony import */ var _pagination_pagination__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pagination/pagination */ "./resources/js/components/pagination/pagination.js");
+
 
 
 
@@ -19490,6 +21043,46 @@ LanguageSelect.propTypes = {
   handleClose: (prop_types__WEBPACK_IMPORTED_MODULE_0___default().func.isRequired)
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (LanguageSelect);
+
+/***/ }),
+
+/***/ "./resources/js/components/pagination/pagination.js":
+/*!**********************************************************!*\
+  !*** ./resources/js/components/pagination/pagination.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _material_ui_lab__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/lab */ "./node_modules/@material-ui/lab/esm/Pagination/Pagination.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+var Pagination = function Pagination(_ref) {
+  var count = _ref.count,
+      page = _ref.page,
+      onChange = _ref.onChange;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_lab__WEBPACK_IMPORTED_MODULE_2__.default, {
+    size: "large",
+    page: page,
+    count: count,
+    onChange: onChange
+  });
+};
+
+Pagination.propTypes = {
+  count: (prop_types__WEBPACK_IMPORTED_MODULE_0___default().number.isRequired),
+  page: (prop_types__WEBPACK_IMPORTED_MODULE_0___default().number.isRequired),
+  onChange: (prop_types__WEBPACK_IMPORTED_MODULE_0___default().func.isRequired)
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Pagination);
 
 /***/ }),
 
@@ -19757,18 +21350,234 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _blog_module_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./blog.module.scss */ "./resources/js/pages/blog/blog.module.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Container/Container.js");
+/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components */ "./resources/js/pages/blog/components/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
 
 
 
 var Blog = function Blog() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-    children: "Blog"
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__.default, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components__WEBPACK_IMPORTED_MODULE_1__.Topics, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components__WEBPACK_IMPORTED_MODULE_1__.Articles, {})]
   });
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Blog);
+
+/***/ }),
+
+/***/ "./resources/js/pages/blog/components/articles/articles.jsx":
+/*!******************************************************************!*\
+  !*** ./resources/js/pages/blog/components/articles/articles.jsx ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Box/Box.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Grid/Grid.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components */ "./resources/js/components/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+var Articles = function Articles(_ref) {
+  var page = _ref.page,
+      setPage = _ref.setPage;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__.default, {
+    my: 3,
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_material_ui_core__WEBPACK_IMPORTED_MODULE_4__.default, {
+      container: true,
+      spacing: 2,
+      justifyContent: "center",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_4__.default, {
+        item: true,
+        xs: 4,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components__WEBPACK_IMPORTED_MODULE_1__.BlogCard, {
+          image: "https://cdn.ostrovok.ru/t/x220/blog/06/9b/069b96985e41d1c9b1bd2f0bf3bd8425f063e3a0.png",
+          category: "\u041A\u0443\u0434\u0430 \u043F\u043E\u0435\u0445\u0430\u0442\u044C",
+          title: "\u0413\u0434\u0435 \u043E\u0442\u0434\u043E\u0445\u043D\u0443\u0442\u044C \u0431\u0435\u0437 \u041F\u0426\u0420-\u0442\u0435\u0441\u0442\u043E\u0432: \u0441\u0442\u0440\u0430\u043D\u044B \u0431\u0435\u0437 \u043A\u043E\u0432\u0438\u0434\u043D\u044B\u0445 \u043E\u0433\u0440\u0430\u043D\u0438\u0447\u0435\u043D\u0438\u0439",
+          date: "19.08.2021"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_4__.default, {
+        item: true,
+        xs: 4,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components__WEBPACK_IMPORTED_MODULE_1__.BlogCard, {
+          image: "https://cdn.ostrovok.ru/t/x220/blog/0a/5a/0a5a8d6d8321d0a29613bc2b487242e22c7b0202.png",
+          category: "\u041A\u0430\u043A \u043F\u0443\u0442\u0435\u0448\u0435\u0441\u0442\u0432\u043E\u0432\u0430\u0442\u044C",
+          title: "\u0414\u043E\u0441\u0442\u043E\u043F\u0440\u0438\u043C\u0435\u0447\u0430\u0442\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u0438 \u041C\u0430\u043B\u0430\u0433\u0438",
+          date: "10.08.2021"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_4__.default, {
+        item: true,
+        xs: 4,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components__WEBPACK_IMPORTED_MODULE_1__.BlogCard, {
+          image: "https://cdn.ostrovok.ru/t/x220/blog/6f/e6/6fe63586ba5e3565da87fe812faf786d6df3d922.png",
+          category: "\u041A\u0443\u0434\u0430 \u043F\u043E\u0435\u0445\u0430\u0442\u044C",
+          title: "\u041A\u0430\u0448, \u041F\u0430\u0442\u0430\u0440\u0430, \u041E\u043B\u044E\u0434\u0435\u043D\u0438\u0437: \u0430\u0432\u0442\u043E\u043F\u0443\u0442\u0435\u0448\u0435\u0441\u0442\u0432\u0438\u0435 \u0432\u044B\u0445\u043E\u0434\u043D\u043E\u0433\u043E \u0434\u043D\u044F",
+          date: "22.07.2021"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_4__.default, {
+        item: true,
+        xs: 4,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components__WEBPACK_IMPORTED_MODULE_1__.BlogCard, {
+          image: "https://cdn.ostrovok.ru/t/x220/blog/0a/5a/0a5a8d6d8321d0a29613bc2b487242e22c7b0202.png",
+          category: "\u041A\u0430\u043A \u043F\u0443\u0442\u0435\u0448\u0435\u0441\u0442\u0432\u043E\u0432\u0430\u0442\u044C",
+          title: "\u0414\u043E\u0441\u0442\u043E\u043F\u0440\u0438\u043C\u0435\u0447\u0430\u0442\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u0438 \u041C\u0430\u043B\u0430\u0433\u0438",
+          date: "10.08.2021"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_4__.default, {
+        item: true,
+        xs: 4,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components__WEBPACK_IMPORTED_MODULE_1__.BlogCard, {
+          image: "https://cdn.ostrovok.ru/t/x220/blog/6f/e6/6fe63586ba5e3565da87fe812faf786d6df3d922.png",
+          category: "\u041A\u0443\u0434\u0430 \u043F\u043E\u0435\u0445\u0430\u0442\u044C",
+          title: "\u041A\u0430\u0448, \u041F\u0430\u0442\u0430\u0440\u0430, \u041E\u043B\u044E\u0434\u0435\u043D\u0438\u0437: \u0430\u0432\u0442\u043E\u043F\u0443\u0442\u0435\u0448\u0435\u0441\u0442\u0432\u0438\u0435 \u0432\u044B\u0445\u043E\u0434\u043D\u043E\u0433\u043E \u0434\u043D\u044F",
+          date: "22.07.2021"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_4__.default, {
+        item: true,
+        xs: 4,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components__WEBPACK_IMPORTED_MODULE_1__.BlogCard, {
+          image: "https://cdn.ostrovok.ru/t/x220/blog/06/9b/069b96985e41d1c9b1bd2f0bf3bd8425f063e3a0.png",
+          category: "\u041A\u0443\u0434\u0430 \u043F\u043E\u0435\u0445\u0430\u0442\u044C",
+          title: "\u0413\u0434\u0435 \u043E\u0442\u0434\u043E\u0445\u043D\u0443\u0442\u044C \u0431\u0435\u0437 \u041F\u0426\u0420-\u0442\u0435\u0441\u0442\u043E\u0432: \u0441\u0442\u0440\u0430\u043D\u044B \u0431\u0435\u0437 \u043A\u043E\u0432\u0438\u0434\u043D\u044B\u0445 \u043E\u0433\u0440\u0430\u043D\u0438\u0447\u0435\u043D\u0438\u0439",
+          date: "19.08.2021"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_4__.default, {
+        item: true,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components__WEBPACK_IMPORTED_MODULE_1__.Pagination, {
+          page: page,
+          count: 15,
+          onChange: function onChange(e, value) {
+            return setPage(value);
+          }
+        })
+      })]
+    })
+  });
+};
+
+Articles.propTypes = {
+  page: (prop_types__WEBPACK_IMPORTED_MODULE_0___default().number.isRequired),
+  setPage: (prop_types__WEBPACK_IMPORTED_MODULE_0___default().func.isRequired)
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Articles);
+
+/***/ }),
+
+/***/ "./resources/js/pages/blog/components/index.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/pages/blog/components/index.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Topics": () => (/* reexport safe */ _topics_topics__WEBPACK_IMPORTED_MODULE_0__.default),
+/* harmony export */   "Articles": () => (/* reexport safe */ _articles_articles__WEBPACK_IMPORTED_MODULE_1__.default)
+/* harmony export */ });
+/* harmony import */ var _topics_topics__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./topics/topics */ "./resources/js/pages/blog/components/topics/topics.jsx");
+/* harmony import */ var _articles_articles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./articles/articles */ "./resources/js/pages/blog/components/articles/articles.jsx");
+
+
+
+/***/ }),
+
+/***/ "./resources/js/pages/blog/components/topics/topics.jsx":
+/*!**************************************************************!*\
+  !*** ./resources/js/pages/blog/components/topics/topics.jsx ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Chip/Chip.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Typography/Typography.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Box/Box.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Divider/Divider.js");
+/* harmony import */ var react_i18next__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-i18next */ "./node_modules/react-i18next/dist/es/useTranslation.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+var topics = [{
+  id: 1,
+  label: 'Куда поехать'
+}, {
+  id: 2,
+  label: 'Где остановиться'
+}, {
+  id: 3,
+  label: 'Как путешествовать'
+}, {
+  id: 4,
+  label: 'Советы экспертов'
+}];
+
+var TopicItem = function TopicItem(_ref) {
+  var topic = _ref.topic,
+      _onClick = _ref.onClick;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__.default, {
+    label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__.default, {
+      variant: "body1",
+      component: "span",
+      children: topic.label
+    }),
+    variant: "outlined",
+    size: "medium",
+    style: {
+      marginRight: 10
+    },
+    onClick: function onClick() {
+      return _onClick(topic.id);
+    }
+  });
+};
+
+var Topics = function Topics() {
+  var _useTranslation = (0,react_i18next__WEBPACK_IMPORTED_MODULE_4__.useTranslation)(),
+      t = _useTranslation.t;
+
+  var onSelectTopic = function onSelectTopic(topic) {// ...
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      children: topics.map(function (topic) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(TopicItem, {
+          topic: topic,
+          onClick: onSelectTopic
+        });
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__.default, {
+      mt: 2,
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_6__.default, {})
+    })]
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Topics);
 
 /***/ }),
 
@@ -20668,6 +22477,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _routes_routeTypes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/routes/routeTypes */ "./resources/js/routes/routeTypes.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -20677,6 +22492,7 @@ var Auth = function Auth(_ref) {
   var _route$template;
 
   var route = _ref.route,
+      routeParams = _ref.routeParams,
       template = _ref.template,
       type = _ref.type;
   //temporary constants while auth not exists
@@ -20698,7 +22514,7 @@ var Auth = function Auth(_ref) {
   var Template = (_route$template = route.template) !== null && _route$template !== void 0 ? _route$template : template;
   var Component = route.component;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Template, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Component, {})
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Component, _objectSpread({}, routeParams))
   });
 };
 
@@ -20748,11 +22564,12 @@ var Routes = function Routes() {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
             exact: route.exact,
             path: route.path,
-            render: function render() {
+            render: function render(routeParams) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Auth__WEBPACK_IMPORTED_MODULE_3__.default, {
                 route: route,
                 template: template,
-                type: type
+                type: type,
+                routeParams: routeParams
               });
             }
           }, route.path);
@@ -33016,22 +34833,6 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
-
-/***/ }),
-
-/***/ "./resources/js/pages/blog/blog.module.scss":
-/*!**************************************************!*\
-  !*** ./resources/js/pages/blog/blog.module.scss ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-// extracted by mini-css-extract-plugin
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
 
 /***/ }),
 
@@ -86119,7 +87920,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"home":"Home","listings":"Listings","blog":"Blog","aboutUs":"About Us","paymentMethods":"Payment Methods","reviews":"Reviews","privacyAndTerms":"Privacy And Terms","sitemap":"Sitemap","knowledgeBase":"Knowledge Base","howItWorks":"How It Works","support":"Support","contact":"Contact","search":"Search","city":"City","hotelName":"Hotel Name","chooseALanguage":"Choose a Language","login":"Login","register":"Register","stillRegistered":"Did you still registered? Go to Login","notRegistered":"Do you not registered? Go to Register","forgotPassword":"Did you forgot your password?","cookieAgreement":"Our website requires cookies to provide all of its features. By using our website, you agree to our use of cookies.","moreInfo":"More Info","confirm":"Confirm","heroTitle":"Find Your Perfect Hotel","heroSubTitle":"Travel around the world feeling like at home","whatOurUsersSay":"What Our Users Say","firstName":"First Name","lastName":"Last Name","emailAddress":"Email Address","password":"Password","favoriteDirections":"Favorite directions of our tourists","adventureBlog":"Adventure Blog","seeAll":"See All","apartment":"Apartment","room":"Room","hotelRoom":"Hotel Room","sharedBedroom":"Shared Bedroom","house":"House","follow":"Follow","copyright":"Copyright 2021 GoodTrip | All rights reserved. <br> Full or partial copying of images and texts is possible only with a link to the GoodTrip.","error404":"Wooops... We can\'t find the page that you\'re looking for :(.","error403":"We are sorry, but you don\'t have access to this page or resource","error500":"Sorry, we had some technical problems during your last operation","backToHome":"Back To Home","checkInCheckOut":"Check In - Check Out","subscribeTitle":"Stay in touch","subscribeSubtitle":"Subscribe to the latest updates and be the first to know about new products and special offers","agreePrivacyPolicy":"I agree to the Privacy Policy"}');
+module.exports = JSON.parse('{"home":"Home","listings":"Listings","blog":"Blog","aboutUs":"About Us","paymentMethods":"Payment Methods","reviews":"Reviews","privacyAndTerms":"Privacy And Terms","sitemap":"Sitemap","knowledgeBase":"Knowledge Base","howItWorks":"How It Works","support":"Support","contact":"Contact","search":"Search","city":"City","hotelName":"Hotel Name","chooseALanguage":"Choose a Language","login":"Login","register":"Register","stillRegistered":"Did you still registered? Go to Login","notRegistered":"Do you not registered? Go to Register","forgotPassword":"Did you forgot your password?","cookieAgreement":"Our website requires cookies to provide all of its features. By using our website, you agree to our use of cookies.","moreInfo":"More Info","confirm":"Confirm","heroTitle":"Find Your Perfect Hotel","heroSubTitle":"Travel around the world feeling like at home","whatOurUsersSay":"What Our Users Say","firstName":"First Name","lastName":"Last Name","emailAddress":"Email Address","password":"Password","favoriteDirections":"Favorite directions of our tourists","adventureBlog":"Adventure Blog","seeAll":"See All","apartment":"Apartment","room":"Room","hotelRoom":"Hotel Room","sharedBedroom":"Shared Bedroom","house":"House","follow":"Follow","copyright":"Copyright 2021 GoodTrip | All rights reserved. <br> Full or partial copying of images and texts is possible only with a link to the GoodTrip.","error404":"Wooops... We can\'t find the page that you\'re looking for :(.","error403":"We are sorry, but you don\'t have access to this page or resource","error500":"Sorry, we had some technical problems during your last operation","backToHome":"Back To Home","checkInCheckOut":"Check In - Check Out","subscribeTitle":"Stay in touch","subscribeSubtitle":"Subscribe to the latest updates and be the first to know about new products and special offers","agreePrivacyPolicy":"I agree to the Privacy Policy","all":"All"}');
 
 /***/ }),
 
@@ -86130,7 +87931,7 @@ module.exports = JSON.parse('{"home":"Home","listings":"Listings","blog":"Blog",
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"home":"Главная","listings":"Объявления","blog":"Блог","aboutUs":"О нас","paymentMethods":"Способы оплаты","reviews":"Отзывы","privacyAndTerms":"Политика и положения","sitemap":"Карта сайта","knowledgeBase":"База знаний","howItWorks":"Как это работает","support":"Поддержка","contact":"Контакты","search":"Поиск","city":"Город","hotelName":"Название отеля","chooseALanguage":"Выберите язык","login":"Войти","register":"Зарегистрироваться","stillRegistered":"Вы уже зарегистрированы? Авторизуйтесь","notRegistered":"Вы еще не зарегистрированы? Зарегистрируйтесь","forgotPassword":"Вы забыли пароль?","cookieAgreement":"Мы используем cookie-файлы для более комфортного взаимодействия с сайтом. Продолжая использовать наш веб-сайт, вы соглашаетесь с использованием cookie-файлов.","moreInfo":"Подробнее","confirm":"Подтвердить","heroTitle":"Найдите свой идеальный отель","heroSubTitle":"Путешествуйте по всему миру, чувствуя себя как дома","whatOurUsersSay":"Что говорят наши пользователи о нас","firstName":"Имя","lastName":"Фамилия","emailAddress":"Электронная почта","password":"Пароль","favoriteDirections":"Любимые направления наших туристов","adventureBlog":"Блог о приключениях","seeAll":"Смотреть все","apartment":"Квартира","room":"Комната","hotelRoom":"Гостиничный номер","sharedBedroom":"Место в комнате","house":"Дом","follow":"Подписаться","copyright":"Авторские права 2021 GoodTrip | Все права защищены. <br> Полное или частичное копирование изображений и текстов возможно только с указанием ссылки на сайт GoodTrip.","error404":"Ууупс... Мы не можем найти страницу, которую вы ищете :(.","error403":"Мы сожалеем, но у Вас нет доступа к этой странице или ресурсу","error500":"Извините, у нас возникли технические неполадки во время вашей последней операции","backToHome":"Вернуться домой","checkInCheckOut":"Дата заезда - выезда","subscribeTitle":"Будьте в курсе","subscribeSubtitle":"Подпишитесь на последние обновления и узнавайте о новинках и специальных предложениях первыми.","agreePrivacyPolicy":"Подтверждаю, что я ознакомлен/а с Политикой Конфиденциальности"}');
+module.exports = JSON.parse('{"home":"Главная","listings":"Объявления","blog":"Блог","aboutUs":"О нас","paymentMethods":"Способы оплаты","reviews":"Отзывы","privacyAndTerms":"Политика и положения","sitemap":"Карта сайта","knowledgeBase":"База знаний","howItWorks":"Как это работает","support":"Поддержка","contact":"Контакты","search":"Поиск","city":"Город","hotelName":"Название отеля","chooseALanguage":"Выберите язык","login":"Войти","register":"Зарегистрироваться","stillRegistered":"Вы уже зарегистрированы? Авторизуйтесь","notRegistered":"Вы еще не зарегистрированы? Зарегистрируйтесь","forgotPassword":"Вы забыли пароль?","cookieAgreement":"Мы используем cookie-файлы для более комфортного взаимодействия с сайтом. Продолжая использовать наш веб-сайт, вы соглашаетесь с использованием cookie-файлов.","moreInfo":"Подробнее","confirm":"Подтвердить","heroTitle":"Найдите свой идеальный отель","heroSubTitle":"Путешествуйте по всему миру, чувствуя себя как дома","whatOurUsersSay":"Что говорят наши пользователи о нас","firstName":"Имя","lastName":"Фамилия","emailAddress":"Электронная почта","password":"Пароль","favoriteDirections":"Любимые направления наших туристов","adventureBlog":"Блог о приключениях","seeAll":"Смотреть все","apartment":"Квартира","room":"Комната","hotelRoom":"Гостиничный номер","sharedBedroom":"Место в комнате","house":"Дом","follow":"Подписаться","copyright":"Авторские права 2021 GoodTrip | Все права защищены. <br> Полное или частичное копирование изображений и текстов возможно только с указанием ссылки на сайт GoodTrip.","error404":"Ууупс... Мы не можем найти страницу, которую вы ищете :(.","error403":"Мы сожалеем, но у Вас нет доступа к этой странице или ресурсу","error500":"Извините, у нас возникли технические неполадки во время вашей последней операции","backToHome":"Вернуться домой","checkInCheckOut":"Дата заезда - выезда","subscribeTitle":"Будьте в курсе","subscribeSubtitle":"Подпишитесь на последние обновления и узнавайте о новинках и специальных предложениях первыми.","agreePrivacyPolicy":"Подтверждаю, что я ознакомлен/а с Политикой Конфиденциальности","all":"Всё"}');
 
 /***/ })
 

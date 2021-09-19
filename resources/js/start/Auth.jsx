@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import * as RouteTypes from '@/routes/routeTypes'
 
-const Auth = ({route, template, type}) => {
+const Auth = ({route, routeParams, template, type}) => {
     //temporary constants while auth not exists
     const isAuth = false
     const isAdmin = false
@@ -21,7 +21,7 @@ const Auth = ({route, template, type}) => {
 
     return (
         <Template>
-            <Component/>
+            <Component {...routeParams}/>
         </Template>
     )
 }
