@@ -21142,7 +21142,7 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
 
 
 
-function TabPanel(_ref) {
+var TabPanel = function TabPanel(_ref) {
   var children = _ref.children,
       value = _ref.value,
       index = _ref.index,
@@ -21158,7 +21158,7 @@ function TabPanel(_ref) {
       })
     })
   }));
-}
+};
 
 TabPanel.propTypes = {
   children: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().node),
@@ -21180,7 +21180,11 @@ var Auth = function Auth() {
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_material_ui_core__WEBPACK_IMPORTED_MODULE_8__.default, {
+    component: _material_ui_core__WEBPACK_IMPORTED_MODULE_5__.default,
     maxWidth: "sm",
+    sx: {
+      borderTop: 1
+    },
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_material_ui_core__WEBPACK_IMPORTED_MODULE_9__.default, {
       value: value,
       onChange: handleChange,
@@ -21188,9 +21192,15 @@ var Auth = function Auth() {
       textColor: "primary",
       centered: true,
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_10__.default, {
-        label: t('login')
+        label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_6__.default, {
+          variant: "h6",
+          children: t('login')
+        })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_10__.default, {
-        label: t('register')
+        label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_6__.default, {
+          variant: "h6",
+          children: t('register')
+        })
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(TabPanel, {
       value: value,
@@ -21219,9 +21229,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var react_i18next__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-i18next */ "./node_modules/react-i18next/dist/es/useTranslation.js");
 /* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Box/Box.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Grid/Grid.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/TextField/TextField.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Button/Button.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -21238,9 +21253,48 @@ var Login = function Login() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__.default, {
     component: "form",
     onSubmit: handleSubmit,
-    mt: 5,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
-      children: t('login')
+    mt: 2,
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__.default, {
+      container: true,
+      spacing: 2,
+      direction: "column",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__.default, {
+        item: true,
+        xs: 12,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_4__.default, {
+          label: t('emailAddress'),
+          type: "email",
+          autoComplete: "email",
+          variant: "outlined",
+          color: "primary",
+          fullWidth: true
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__.default, {
+        item: true,
+        xs: 12,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_4__.default, {
+          label: t('password'),
+          type: "password",
+          autoComplete: "current-password",
+          variant: "outlined",
+          color: "primary",
+          fullWidth: true
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__.default, {
+        container: true,
+        item: true,
+        xs: 12,
+        direction: "column",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
+          to: "/lost-password",
+          children: t('lostPassword')
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_6__.default, {
+          type: "submit",
+          variant: "outlined",
+          size: "large",
+          children: t('login')
+        })]
+      })]
     })
   });
 };
@@ -21261,11 +21315,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react_i18next__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-i18next */ "./node_modules/react-i18next/dist/es/useTranslation.js");
+/* harmony import */ var react_i18next__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-i18next */ "./node_modules/react-i18next/dist/es/Trans.js");
 /* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Box/Box.js");
 /* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Grid/Grid.js");
 /* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/TextField/TextField.js");
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Button/Button.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/FormControlLabel/FormControlLabel.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Checkbox/Checkbox.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Button/Button.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -21282,7 +21341,7 @@ var Register = function Register() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__.default, {
     component: "form",
     onSubmit: handleSubmit,
-    mt: 5,
+    mt: 2,
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__.default, {
       container: true,
       spacing: 2,
@@ -21312,6 +21371,17 @@ var Register = function Register() {
         item: true,
         xs: 12,
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_4__.default, {
+          label: t('emailAddress'),
+          type: "email",
+          autoComplete: "email",
+          variant: "outlined",
+          color: "primary",
+          fullWidth: true
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__.default, {
+        item: true,
+        xs: 12,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_4__.default, {
           label: t('password'),
           type: "password",
           autoComplete: "current-password",
@@ -21323,11 +21393,26 @@ var Register = function Register() {
         item: true,
         xs: 12,
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__.default, {
+          control: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_6__.default, {
+            value: "allowExtraEmails",
+            color: "primary"
+          }),
+          label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_i18next__WEBPACK_IMPORTED_MODULE_7__.Trans, {
+            defaults: "agreePrivacyPolicy",
+            components: {
+              link: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, {
+                to: "/privacy-policy"
+              })
+            }
+          })
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__.default, {
+        item: true,
+        xs: 12,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_9__.default, {
           type: "submit",
-          variant: "contained",
-          color: "primary",
+          variant: "outlined",
           size: "large",
-          fullWidth: true,
           children: t('register')
         })
       })]
@@ -87920,7 +88005,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"home":"Home","listings":"Listings","blog":"Blog","aboutUs":"About Us","paymentMethods":"Payment Methods","reviews":"Reviews","privacyAndTerms":"Privacy And Terms","sitemap":"Sitemap","knowledgeBase":"Knowledge Base","howItWorks":"How It Works","support":"Support","contact":"Contact","search":"Search","city":"City","hotelName":"Hotel Name","chooseALanguage":"Choose a Language","login":"Login","register":"Register","stillRegistered":"Did you still registered? Go to Login","notRegistered":"Do you not registered? Go to Register","forgotPassword":"Did you forgot your password?","cookieAgreement":"Our website requires cookies to provide all of its features. By using our website, you agree to our use of cookies.","moreInfo":"More Info","confirm":"Confirm","heroTitle":"Find Your Perfect Hotel","heroSubTitle":"Travel around the world feeling like at home","whatOurUsersSay":"What Our Users Say","firstName":"First Name","lastName":"Last Name","emailAddress":"Email Address","password":"Password","favoriteDirections":"Favorite directions of our tourists","adventureBlog":"Adventure Blog","seeAll":"See All","apartment":"Apartment","room":"Room","hotelRoom":"Hotel Room","sharedBedroom":"Shared Bedroom","house":"House","follow":"Follow","copyright":"Copyright 2021 GoodTrip | All rights reserved. <br> Full or partial copying of images and texts is possible only with a link to the GoodTrip.","error404":"Wooops... We can\'t find the page that you\'re looking for :(.","error403":"We are sorry, but you don\'t have access to this page or resource","error500":"Sorry, we had some technical problems during your last operation","backToHome":"Back To Home","checkInCheckOut":"Check In - Check Out","subscribeTitle":"Stay in touch","subscribeSubtitle":"Subscribe to the latest updates and be the first to know about new products and special offers","agreePrivacyPolicy":"I agree to the Privacy Policy","all":"All"}');
+module.exports = JSON.parse('{"home":"Home","listings":"Listings","blog":"Blog","aboutUs":"About Us","paymentMethods":"Payment Methods","reviews":"Reviews","privacyAndTerms":"Privacy And Terms","sitemap":"Sitemap","knowledgeBase":"Knowledge Base","howItWorks":"How It Works","support":"Support","contact":"Contact","search":"Search","city":"City","hotelName":"Hotel Name","chooseALanguage":"Choose a Language","login":"Login","register":"Register","stillRegistered":"Did you still registered? Go to Login","notRegistered":"Do you not registered? Go to Register","forgotPassword":"Did you forgot your password?","cookieAgreement":"Our website requires cookies to provide all of its features. By using our website, you agree to our use of cookies.","moreInfo":"More Info","confirm":"Confirm","heroTitle":"Find Your Perfect Hotel","heroSubTitle":"Travel around the world feeling like at home","whatOurUsersSay":"What Our Users Say","firstName":"First Name","lastName":"Last Name","emailAddress":"Email Address","password":"Password","favoriteDirections":"Favorite directions of our tourists","adventureBlog":"Adventure Blog","seeAll":"See All","apartment":"Apartment","room":"Room","hotelRoom":"Hotel Room","sharedBedroom":"Shared Bedroom","house":"House","follow":"Follow","copyright":"Copyright 2021 GoodTrip | All rights reserved. <br> Full or partial copying of images and texts is possible only with a link to the GoodTrip.","error404":"Wooops... We can\'t find the page that you\'re looking for :(.","error403":"We are sorry, but you don\'t have access to this page or resource","error500":"Sorry, we had some technical problems during your last operation","backToHome":"Back To Home","checkInCheckOut":"Check In - Check Out","subscribeTitle":"Stay in touch","subscribeSubtitle":"Subscribe to the latest updates and be the first to know about new products and special offers","agreePrivacyPolicy":"I agree to the Privacy Policy","all":"All","lostPassword":"Lost Your Password?"}');
 
 /***/ }),
 
@@ -87931,7 +88016,7 @@ module.exports = JSON.parse('{"home":"Home","listings":"Listings","blog":"Blog",
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"home":"Главная","listings":"Объявления","blog":"Блог","aboutUs":"О нас","paymentMethods":"Способы оплаты","reviews":"Отзывы","privacyAndTerms":"Политика и положения","sitemap":"Карта сайта","knowledgeBase":"База знаний","howItWorks":"Как это работает","support":"Поддержка","contact":"Контакты","search":"Поиск","city":"Город","hotelName":"Название отеля","chooseALanguage":"Выберите язык","login":"Войти","register":"Зарегистрироваться","stillRegistered":"Вы уже зарегистрированы? Авторизуйтесь","notRegistered":"Вы еще не зарегистрированы? Зарегистрируйтесь","forgotPassword":"Вы забыли пароль?","cookieAgreement":"Мы используем cookie-файлы для более комфортного взаимодействия с сайтом. Продолжая использовать наш веб-сайт, вы соглашаетесь с использованием cookie-файлов.","moreInfo":"Подробнее","confirm":"Подтвердить","heroTitle":"Найдите свой идеальный отель","heroSubTitle":"Путешествуйте по всему миру, чувствуя себя как дома","whatOurUsersSay":"Что говорят наши пользователи о нас","firstName":"Имя","lastName":"Фамилия","emailAddress":"Электронная почта","password":"Пароль","favoriteDirections":"Любимые направления наших туристов","adventureBlog":"Блог о приключениях","seeAll":"Смотреть все","apartment":"Квартира","room":"Комната","hotelRoom":"Гостиничный номер","sharedBedroom":"Место в комнате","house":"Дом","follow":"Подписаться","copyright":"Авторские права 2021 GoodTrip | Все права защищены. <br> Полное или частичное копирование изображений и текстов возможно только с указанием ссылки на сайт GoodTrip.","error404":"Ууупс... Мы не можем найти страницу, которую вы ищете :(.","error403":"Мы сожалеем, но у Вас нет доступа к этой странице или ресурсу","error500":"Извините, у нас возникли технические неполадки во время вашей последней операции","backToHome":"Вернуться домой","checkInCheckOut":"Дата заезда - выезда","subscribeTitle":"Будьте в курсе","subscribeSubtitle":"Подпишитесь на последние обновления и узнавайте о новинках и специальных предложениях первыми.","agreePrivacyPolicy":"Подтверждаю, что я ознакомлен/а с Политикой Конфиденциальности","all":"Всё"}');
+module.exports = JSON.parse('{"home":"Главная","listings":"Объявления","blog":"Блог","aboutUs":"О нас","paymentMethods":"Способы оплаты","reviews":"Отзывы","privacyAndTerms":"Политика и положения","sitemap":"Карта сайта","knowledgeBase":"База знаний","howItWorks":"Как это работает","support":"Поддержка","contact":"Контакты","search":"Поиск","city":"Город","hotelName":"Название отеля","chooseALanguage":"Выберите язык","login":"Войти","register":"Зарегистрироваться","stillRegistered":"Вы уже зарегистрированы? Авторизуйтесь","notRegistered":"Вы еще не зарегистрированы? Зарегистрируйтесь","forgotPassword":"Вы забыли пароль?","cookieAgreement":"Мы используем cookie-файлы для более комфортного взаимодействия с сайтом. Продолжая использовать наш веб-сайт, вы соглашаетесь с использованием cookie-файлов.","moreInfo":"Подробнее","confirm":"Подтвердить","heroTitle":"Найдите свой идеальный отель","heroSubTitle":"Путешествуйте по всему миру, чувствуя себя как дома","whatOurUsersSay":"Что говорят наши пользователи о нас","firstName":"Имя","lastName":"Фамилия","emailAddress":"Электронная почта","password":"Пароль","favoriteDirections":"Любимые направления наших туристов","adventureBlog":"Блог о приключениях","seeAll":"Смотреть все","apartment":"Квартира","room":"Комната","hotelRoom":"Гостиничный номер","sharedBedroom":"Место в комнате","house":"Дом","follow":"Подписаться","copyright":"Авторские права 2021 GoodTrip | Все права защищены. <br> Полное или частичное копирование изображений и текстов возможно только с указанием ссылки на сайт GoodTrip.","error404":"Ууупс... Мы не можем найти страницу, которую вы ищете :(.","error403":"Мы сожалеем, но у Вас нет доступа к этой странице или ресурсу","error500":"Извините, у нас возникли технические неполадки во время вашей последней операции","backToHome":"Вернуться домой","checkInCheckOut":"Дата заезда - выезда","subscribeTitle":"Будьте в курсе","subscribeSubtitle":"Подпишитесь на последние обновления и узнавайте о новинках и специальных предложениях первыми.","agreePrivacyPolicy":"Подтверждаю, что я ознакомлен/а с Политикой Конфиденциальности","all":"Всё","lostPassword":"Вы потеряли пароль?"}');
 
 /***/ })
 
