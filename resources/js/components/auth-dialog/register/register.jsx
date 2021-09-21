@@ -10,7 +10,7 @@ const Register = () => {
     }
 
     return (
-        <Box component="form" onSubmit={handleSubmit} mt={2}>
+        <form onSubmit={handleSubmit}>
             <Grid container spacing={2}>
                 <Grid item xs={6}>
                     <TextField
@@ -69,7 +69,7 @@ const Register = () => {
                     >{t('register')}</Button>
                 </Grid>
             </Grid>
-        </Box>
+        </form>
     )
 }
 

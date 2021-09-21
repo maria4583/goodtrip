@@ -1,5 +1,5 @@
 import RouteList from '@/common/constants/route-list'
-import {Home, Blog, Listings, Auth} from '@/pages'
+import {Home, Blog, Listings} from '@/pages'
 
 export default [
     {
@@ -16,10 +16,5 @@ export default [
         exact: true,
         path: RouteList.listings,
         component: Listings
-    },
-    {
-        exact: true,
-        path: RouteList.auth,
-        component: Auth
     },
 ]

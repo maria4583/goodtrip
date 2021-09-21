@@ -10,7 +10,7 @@ const Login = () => {
     }
 
     return (
-        <Box component="form" onSubmit={handleSubmit} mt={2}>
+        <form onSubmit={handleSubmit}>
             <Grid container spacing={2} direction="column">
                 <Grid item xs={12}>
                     <TextField
@@ -32,9 +32,10 @@ const Login = () => {
                         fullWidth
                     />
                 </Grid>
-                <Grid container item xs={12} direction="column">
+                <Grid item xs={12}>
                     <Link to="/lost-password">{t('lostPassword')}</Link>
-
+                </Grid>
+                <Grid item xs={12}>
                     <Button
                         type="submit"
                         variant="outlined"
@@ -42,7 +43,7 @@ const Login = () => {
                     >{t('login')}</Button>
                 </Grid>
             </Grid>
-        </Box>
+        </form>
     )
 }
 

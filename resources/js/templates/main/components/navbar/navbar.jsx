@@ -5,11 +5,12 @@ import {Container} from '@material-ui/core'
 
 import RouteList from '@/common/constants/route-list/'
 
-import {LanguageSelect} from '@/components/'
+import {AuthDialog, LanguageSelect} from '@/components/'
 import styles from './navbar.module.scss'
 
 const Navbar = () => {
     const [languageDialog, setLanguageDialog] = useState(false)
+    const [authDialog, setAuthDialog] = useState(false)
 
     const {t, i18n} = useTranslation()
 
@@ -60,20 +61,23 @@ const Navbar = () => {
                 </li>
 
                 <li>
-                    <NavLink
-                        exact
-                        to={RouteList.auth}
+                    <span
                         className={styles.styled}
-                        activeClassName={styles.active}
+                        onClick={() => setAuthDialog(true)}
                     >
                         {t('login')}
-                    </NavLink>
+                    </span>
                 </li>
             </ul>
 
             <LanguageSelect
                 open={languageDialog}
                 handleClose={() => setLanguageDialog(false)}
+            />
+
+            <AuthDialog
+                open={authDialog}
+                handleClose={() => setAuthDialog(false)}
             />
         </Container>
     )
