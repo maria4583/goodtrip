@@ -17,6 +17,7 @@ mix
         '@': path.resolve(__dirname, 'resources/js')
     })
     .js('resources/js/index.js', 'public/js')
+    .css('resources/css/index.css', 'public/css')
     .react()
     .override(config => {
         if (config.devServer) {
