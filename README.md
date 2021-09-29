@@ -30,15 +30,4 @@
 - Backend - Laravel, Unit Tests, MySQL
 - Deploy - Ubuntu, Docker
 
-### Дополнительные материалы:
-- https://technext.github.io/pacific/index.html
-- https://technext.github.io/direngine/index.html
-- https://technext.github.io/tournest/index.html
-- https://listeo.pro
-- https://www.airbnb.ru
-- https://guido.bookingcore.org
-- https://wowtrip.me
-- https://ostrovok.ru
-- https://www.trivago.ru
-
 ### Установка
